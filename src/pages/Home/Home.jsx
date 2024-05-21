@@ -44,31 +44,31 @@ const Home = () => {
         <HomeStatisticsDiv>
           <HomeDottedLineDiv>
             <DottedLineHome />
+            <HomeStatisticsUl>
+              <HomeStatisticsli>
+                <HomeStatisticsSpanNumber>32,000 +</HomeStatisticsSpanNumber>
+                <HomeStatisticsSpanText>
+                  Experienced tutors
+                </HomeStatisticsSpanText>
+              </HomeStatisticsli>
+              <HomeStatisticsli>
+                <HomeStatisticsSpanNumber>300,000 +</HomeStatisticsSpanNumber>
+                <HomeStatisticsSpanText>
+                  5-star tutor reviews
+                </HomeStatisticsSpanText>
+              </HomeStatisticsli>
+              <HomeStatisticsli>
+                <HomeStatisticsSpanNumber>120 +</HomeStatisticsSpanNumber>
+                <HomeStatisticsSpanText>Subjects taught</HomeStatisticsSpanText>
+              </HomeStatisticsli>
+              <HomeStatisticsli>
+                <HomeStatisticsSpanNumber>200 +</HomeStatisticsSpanNumber>
+                <HomeStatisticsSpanText>
+                  Tutor nationalities
+                </HomeStatisticsSpanText>
+              </HomeStatisticsli>
+            </HomeStatisticsUl>
           </HomeDottedLineDiv>
-          <HomeStatisticsUl>
-            <HomeStatisticsli>
-              <HomeStatisticsSpanNumber>32,000 +</HomeStatisticsSpanNumber>
-              <HomeStatisticsSpanText>
-                Experienced tutors
-              </HomeStatisticsSpanText>
-            </HomeStatisticsli>
-            <HomeStatisticsli>
-              <HomeStatisticsSpanNumber>300,000 +</HomeStatisticsSpanNumber>
-              <HomeStatisticsSpanText>
-                5-star tutor reviews
-              </HomeStatisticsSpanText>
-            </HomeStatisticsli>
-            <HomeStatisticsli>
-              <HomeStatisticsSpanNumber>120 +</HomeStatisticsSpanNumber>
-              <HomeStatisticsSpanText>Subjects taught</HomeStatisticsSpanText>
-            </HomeStatisticsli>
-            <HomeStatisticsli>
-              <HomeStatisticsSpanNumber>200 +</HomeStatisticsSpanNumber>
-              <HomeStatisticsSpanText>
-                Tutor nationalities
-              </HomeStatisticsSpanText>
-            </HomeStatisticsli>
-          </HomeStatisticsUl>
         </HomeStatisticsDiv>
       </section>
     </>

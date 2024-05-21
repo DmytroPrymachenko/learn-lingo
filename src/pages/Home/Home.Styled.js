@@ -52,19 +52,22 @@ export const HomeStatisticsDiv = styled.div`
   position: relative;
 `;
 export const HomeDottedLineDiv = styled.div`
-  position: absolute;
-  z-index: -1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1314px;
+  margin: 0 auto;
 `;
 export const HomeStatisticsUl = styled.ul`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 40px;
-  padding-right: 122px;
-  padding-bottom: 40px;
-  padding-left: 122px;
-  gap: 100px;
+
+  position: absolute;
   justify-content: space-between;
+  width: 95%;
 `;
 export const HomeStatisticsli = styled.li`
   display: flex;

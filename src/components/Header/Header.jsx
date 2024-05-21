@@ -1,22 +1,19 @@
-import { Link } from "react-router-dom";
-import IconHeader from "../../images/svg/IconHeader";
-import { HeaderDivLink, HeaderLink, HeaderSection } from "./Header.Styled";
+import { HeaderSection } from "./Header.Styled";
 
 import { useEffect, useState } from "react";
 import ModalRegister from "../Modal/ModalAuth/ModalRegister";
 import ModalLogin from "../Modal/ModalAuth/ModalLogin";
-import HeaderNeedAuthorization from "./HeaderNeedAuthorization/HeaderNeedAuthorization";
-import { useSelector } from "react-redux";
-import { selectUser } from "../../store/selected";
 
 import Backdrop from "../Backdrop/Backdrop";
-import HeaderClientIsAuthorized from "./HeaderClientIsAuthorized/HeaderClientIsAuthorized";
+
+import HeaderDesktop from "./HeaderDesktop/HeaderDesktop";
+import HeaderMobale from "./HeaderMobale/HeaderMobale";
 
 const Header = () => {
   const [isModalLogin, setIsModalLogin] = useState(false);
   const [isModalRegister, setIsModalRegister] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  const user = useSelector(selectUser);
   const openModalLogin = () => {
     setIsModalLogin((prevState) => !prevState);
   };
@@ -29,15 +26,21 @@ const Header = () => {
     setIsModalRegister(false);
   };
   useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
     const handleKeyDown = (event) => {
       if (event.key === "Escape") {
         closeModal();
       }
     };
 
+    window.addEventListener("resize", handleResize);
     window.addEventListener("keydown", handleKeyDown);
 
     return () => {
+      window.removeEventListener("resize", handleResize);
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
@@ -58,44 +61,13 @@ const Header = () => {
         </>
       )}
       <HeaderSection>
-        <div>
-          <Link
-            to="/"
-            aria-label="logo and return to the main page"
-            style={{ textDecoration: "none" }}
-          >
-            <IconHeader />
-          </Link>
-        </div>
-        <HeaderDivLink>
-          <HeaderLink
-            to="/"
-            aria-label="Home"
-            style={{ textDecoration: "none" }}
-          >
-            Home
-          </HeaderLink>
-          <HeaderLink
-            to="/teachers"
-            aria-label="Teachers"
-            style={{ textDecoration: "none" }}
-          >
-            Teachers
-          </HeaderLink>
-          {user && (
-            <HeaderLink
-              to="/favorites"
-              aria-label="Teachers"
-              style={{ textDecoration: "none" }}
-            >
-              Favorites
-            </HeaderLink>
-          )}
-        </HeaderDivLink>
-        {user ? (
-          <HeaderClientIsAuthorized />
+        {windowWidth < 768 ? (
+          <HeaderMobale
+            openModalLogin={openModalLogin}
+            openModalRegister={openModalRegister}
+          />
         ) : (
-          <HeaderNeedAuthorization
+          <HeaderDesktop
             openModalLogin={openModalLogin}
             openModalRegister={openModalRegister}
           />

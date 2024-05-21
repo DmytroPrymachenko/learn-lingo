@@ -4,7 +4,6 @@ export const ClientIsAuthorizedDiv = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 25px;
 `;
 export const ClientIsAuthorizedNameDiv = styled.div`
   display: flex;
