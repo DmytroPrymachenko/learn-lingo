@@ -2,8 +2,16 @@ import styled from "styled-components";
 
 export const TeachersFilterDiv = styled.div`
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 20px;
   gap: 20px;
-  align-items: center;
+  @media (min-width: 768px) {
+    align-items: center;
+    padding-left: 0px;
+    flex-direction: row;
+    padding-top: 20px;
+  }
 `;
 
 export const TeachersFilterSpan = styled.span`
@@ -13,20 +21,29 @@ export const TeachersFilterSpan = styled.span`
   color: #8a8a89;
 `;
 export const FilterInputDivLanguages = styled.div`
-  width: 220px;
+  width: 100%;
+  @media (min-width: 768px) {
+    width: 220px;
+  }
 `;
 export const FilterInputDivLevel = styled.div`
-  width: 200px;
+  width: 100%;
+  @media (min-width: 768px) {
+    width: 200px;
+  }
 `;
 export const FilterInputDivPrice = styled.div`
-  width: 125px;
+  width: 100%;
+  @media (min-width: 768px) {
+    width: 125px;
+  }
 `;
 
 export const TeachersFilterMobaleDiv = styled.div`
   background-color: #fff;
-  width: 300px;
-  height: 100%;
-  padding: 64px 20px;
+  width: 60%;
+  height: 50%;
+  padding: 20px 20px;
   border-radius: 0 30px 30px 0;
   position: fixed;
   top: 0;
@@ -55,4 +72,11 @@ export const TeachersFilterMobaleButton = styled.button`
   background-color: transparent;
   border: none;
   cursor: pointer;
+`;
+export const TeachersFilterMobaleCloseButton = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  height: 20%;
 `;

@@ -1,20 +1,19 @@
 import styled from "styled-components";
 
 export const DetailedInformationDiv = styled.div`
-  position: fixed;
-  top: 20%;
-  left: 20%;
-  display: flex;
-  /* position: relative; */
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 24px;
-
-  /* background-color: #fff; */
   background-color: #fff;
+  padding: 24px;
   border-radius: 30px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 10;
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: translate(-50%, -50%) scale(1.05); /* Enlarge on hover */
+  }
 `;
 export const DetailedInformationForm = styled.div`
   display: flex;

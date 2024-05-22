@@ -155,7 +155,7 @@ export const TeachersItemlanguagesParamsUl = styled.ul`
   flex-direction: row;
 
   align-items: center;
-
+  white-space: nowrap;
   text-decoration-skip-ink: none;
   text-decoration: underline;
   color: #121417;

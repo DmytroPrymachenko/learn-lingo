@@ -228,7 +228,7 @@ const TeachersFilter = ({ data, setTeachersFilter }) => {
       setTeachersFilter(filteredTeachers);
     }
   };
-  console.log(selectedPrice);
+
   return (
     <>
       <>

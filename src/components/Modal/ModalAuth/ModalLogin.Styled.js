@@ -18,7 +18,10 @@ export const ModalLoginFormDiv = styled.div`
 
 export const ModalLoginForm = styled.form`
   background-color: #fff;
-  padding: 64px;
+  padding: 20px;
+  @media (min-width: 768px) {
+    padding: 64px;
+  }
   border-radius: 30px;
   position: fixed;
   top: 50%;

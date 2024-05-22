@@ -38,6 +38,9 @@ import ModalRegister from "../Modal/ModalAuth/ModalRegister";
 import AuthorizationMessage from "../Modal/AuthorizationMessage/AuthorizationMessage";
 import BackdropActive from "../Backdrop/BackdropActive";
 import { useLocation } from "react-router-dom";
+
+import TeachersItemMobale from "./TeachersItemMobale";
+import DetailedInformationMobale from "../Modal/DetailedInformation/DetailedInformationMobale";
 const favArray = JSON.parse(localStorage.getItem("favorites")) ?? [];
 
 const TeachersItem = ({ item, handleFavoriteChange, setTest }) => {
@@ -52,6 +55,7 @@ const TeachersItem = ({ item, handleFavoriteChange, setTest }) => {
   const [isModalRegister, setIsModalRegister] = useState(false);
   const [isModalFavorit, setIsModalFavorit] = useState(false);
   const location = useLocation();
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const openModalLogin = () => {
     setIsModalLogin(true);
@@ -124,9 +128,30 @@ const TeachersItem = ({ item, handleFavoriteChange, setTest }) => {
 
   const handleRemoveFavorite = () => {
     handleToggleFavorite(item);
-    closeModal();
     handleFavoriteChange();
+    closeModal();
+    window.location.reload();
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        closeModal();
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
 
   const checked = JSON.parse(localStorage.getItem("favorites"))?.includes(
     item.id
@@ -183,101 +208,134 @@ const TeachersItem = ({ item, handleFavoriteChange, setTest }) => {
           </>
         )}
       </>
-      <TeachersListLi>
-        <div>
-          <TeachersListImageDiv>
-            <TeachersListImageTeacher src={item.avatar_url} alt="Teacher" />
-            <TeachersListImageActive />
-          </TeachersListImageDiv>
-        </div>
-        <TeachersItemContent>
-          <TeachersitemLTitleDiv>
-            <TeachersListStatusDiv>
-              <TeachersItemTitleDiv>
-                <TeachersItemParameters>Languages</TeachersItemParameters>
-              </TeachersItemTitleDiv>
-
-              <TeachersListStatusDivInternal>
-                <TeachersListStatusUl>
-                  <TeachersListStatusLi>
-                    <LessonsOnlineSVG />
-                    <span>Lessons online</span>
-                  </TeachersListStatusLi>
-                  <TeachersListStatusLi>
-                    <span>Lessons done: {item.lessons_done}</span>
-                  </TeachersListStatusLi>
-                  <TeachersListStatusLi>
-                    <StarSVG />
-                    <span>Rating: {item.rating}</span>
-                  </TeachersListStatusLi>
-                  <TeachersListStatusLi>
-                    <span>Price / 1 hour:</span>
-
-                    <TeachersItemPriceSpan>
-                      {item.price_per_hour}$
-                    </TeachersItemPriceSpan>
-                  </TeachersListStatusLi>
-                </TeachersListStatusUl>
-                <ButtonTeachersFavorite onClick={handleFavoriteClick}>
-                  {checked ? <HeartLikeActive /> : <HeartLike />}
-                </ButtonTeachersFavorite>
-              </TeachersListStatusDivInternal>
-            </TeachersListStatusDiv>
-            <TeachersItemNameSpan>
-              {item.name} {item.surname}
-            </TeachersItemNameSpan>
-          </TeachersitemLTitleDiv>
-          <TeachersItemContentParams>
-            <ul>
-              <TeachersItemContentParamsLi>
-                <TeachersItemParameters>Speaks:</TeachersItemParameters>
-                <TeachersItemlanguagesParamsUl>
-                  {item.languages.map((language, index) => (
-                    <li key={index}>{"  " + language} </li>
-                  ))}
-                  {/* <span>{item.languages.map((el) => el)}</span> */}
-                </TeachersItemlanguagesParamsUl>
-              </TeachersItemContentParamsLi>
-              <TeachersItemContentParamsLi>
-                <TeachersItemParameters>Lesson Info:</TeachersItemParameters>
-                <p>{item.lesson_info}</p>
-              </TeachersItemContentParamsLi>
-              <TeachersItemContentParamsLi>
-                <TeachersItemParameters>Conditions:</TeachersItemParameters>
-                <p>{item.conditions}</p>
-              </TeachersItemContentParamsLi>
-            </ul>
-            <>
-              <TeachersItemReadMore onClick={handleShowModalItem}>
-                Read more
-              </TeachersItemReadMore>
-
-              {showModal && (
-                <>
-                  <DetailedInformation
-                    item={detailedInformationItem}
-                    checked={checked}
-                    handleToggleFavorite={handleToggleFavorite}
-                    handleTrialLesson={handleTrialLesson}
-                    trialLesson={trialLessonModal}
-                    closeModal={closeModal}
+      {showModal && (
+        <>
+          <>
+            {windowWidth < 1280 ? (
+              <>
+                <DetailedInformationMobale
+                  item={detailedInformationItem}
+                  checked={checked}
+                  handleToggleFavorite={handleToggleFavorite}
+                  handleTrialLesson={handleTrialLesson}
+                  trialLesson={trialLessonModal}
+                  closeModal={closeModal}
+                />
+              </>
+            ) : (
+              <DetailedInformation
+                item={detailedInformationItem}
+                checked={checked}
+                handleToggleFavorite={handleToggleFavorite}
+                handleTrialLesson={handleTrialLesson}
+                trialLesson={trialLessonModal}
+                closeModal={closeModal}
+              />
+            )}
+          </>
+          <BackdropActive closeModal={closeModal} />
+        </>
+      )}
+      <>
+        {windowWidth < 1280 ? (
+          <TeachersItemMobale
+            item={item}
+            handleFavoriteClick={handleFavoriteClick}
+            checked={checked}
+            handleShowModalItem={handleShowModalItem}
+          />
+        ) : (
+          <>
+            <TeachersListLi>
+              <div>
+                <TeachersListImageDiv>
+                  <TeachersListImageTeacher
+                    src={item.avatar_url}
+                    alt="Teacher"
                   />
-                  <BackdropActive closeModal={closeModal} />
-                </>
-              )}
-            </>
-          </TeachersItemContentParams>
-          <div>
-            <TeachersItemContentlevelsUl>
-              {item.levels.map((language, index) => (
-                <TeachersItemContentlevelsLi key={index}>
-                  #{language}
-                </TeachersItemContentlevelsLi>
-              ))}
-            </TeachersItemContentlevelsUl>
-          </div>
-        </TeachersItemContent>
-      </TeachersListLi>
+                  <TeachersListImageActive />
+                </TeachersListImageDiv>
+              </div>
+              <TeachersItemContent>
+                <TeachersitemLTitleDiv>
+                  <TeachersListStatusDiv>
+                    <TeachersItemTitleDiv>
+                      <TeachersItemParameters>Languages</TeachersItemParameters>
+                    </TeachersItemTitleDiv>
+
+                    <TeachersListStatusDivInternal>
+                      <TeachersListStatusUl>
+                        <TeachersListStatusLi>
+                          <LessonsOnlineSVG />
+                          <span>Lessons online</span>
+                        </TeachersListStatusLi>
+                        <TeachersListStatusLi>
+                          <span>Lessons done: {item.lessons_done}</span>
+                        </TeachersListStatusLi>
+                        <TeachersListStatusLi>
+                          <StarSVG />
+                          <span>Rating: {item.rating}</span>
+                        </TeachersListStatusLi>
+                        <TeachersListStatusLi>
+                          <span>Price / 1 hour:</span>
+
+                          <TeachersItemPriceSpan>
+                            {item.price_per_hour}$
+                          </TeachersItemPriceSpan>
+                        </TeachersListStatusLi>
+                      </TeachersListStatusUl>
+                      <ButtonTeachersFavorite onClick={handleFavoriteClick}>
+                        {checked ? <HeartLikeActive /> : <HeartLike />}
+                      </ButtonTeachersFavorite>
+                    </TeachersListStatusDivInternal>
+                  </TeachersListStatusDiv>
+                  <TeachersItemNameSpan>
+                    {item.name} {item.surname}
+                  </TeachersItemNameSpan>
+                </TeachersitemLTitleDiv>
+                <TeachersItemContentParams>
+                  <ul>
+                    <TeachersItemContentParamsLi>
+                      <TeachersItemParameters>Speaks:</TeachersItemParameters>
+                      <TeachersItemlanguagesParamsUl>
+                        {item.languages.map((language, index) => (
+                          <li key={index}>{"  " + language} </li>
+                        ))}
+                      </TeachersItemlanguagesParamsUl>
+                    </TeachersItemContentParamsLi>
+                    <TeachersItemContentParamsLi>
+                      <TeachersItemParameters>
+                        Lesson Info:
+                      </TeachersItemParameters>
+                      <p>{item.lesson_info}</p>
+                    </TeachersItemContentParamsLi>
+                    <TeachersItemContentParamsLi>
+                      <TeachersItemParameters>
+                        Conditions:
+                      </TeachersItemParameters>
+                      <p>{item.conditions}</p>
+                    </TeachersItemContentParamsLi>
+                  </ul>
+                  <>
+                    <TeachersItemReadMore onClick={handleShowModalItem}>
+                      Read more
+                    </TeachersItemReadMore>
+                  </>
+                </TeachersItemContentParams>
+                <div>
+                  <TeachersItemContentlevelsUl>
+                    {item.levels.map((language, index) => (
+                      <TeachersItemContentlevelsLi key={index}>
+                        #{language}
+                      </TeachersItemContentlevelsLi>
+                    ))}
+                  </TeachersItemContentlevelsUl>
+                </div>
+              </TeachersItemContent>
+            </TeachersListLi>
+          </>
+        )}
+      </>
     </>
   );
 };

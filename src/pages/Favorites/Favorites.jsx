@@ -31,6 +31,10 @@ const Favorites = () => {
     };
   }, []);
 
+  useEffect(() => {
+    getFavoritesFromLocalStorage();
+  }, [test]);
+
   const getFavoritesFromLocalStorage = () => {
     const storedFavorites = localStorage.getItem("favorites");
     if (storedFavorites) {
@@ -48,9 +52,6 @@ const Favorites = () => {
     getFavoritesFromLocalStorage();
   }, [test]);
 
-  useEffect(() => {
-    getFavoritesFromLocalStorage();
-  }, []);
   console.log(favorites);
 
   const db = getDatabase();
@@ -70,7 +71,7 @@ const Favorites = () => {
       // setFilteredList(teachersFilter);
       setFilteredList(teachersFilter || teachersData);
     }
-  }, [teachersFilter, teachersData]);
+  }, [teachersFilter, teachersData, test]);
 
   useEffect(() => {
     if (favorites.length > 0 && favoritesData) {
@@ -82,7 +83,7 @@ const Favorites = () => {
         .filter((teacher) => teacher !== undefined);
       setTeachersData(filteredTeachers);
     }
-  }, [favoritesData, favorites]);
+  }, [favoritesData, favorites, test]);
   // Фільтрація
 
   return (

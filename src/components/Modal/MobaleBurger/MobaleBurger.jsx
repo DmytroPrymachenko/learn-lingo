@@ -1,13 +1,13 @@
 import { useSelector } from "react-redux";
-
 import {
   MobaleBurgerContainerDiv,
   MobaleBurgerDiv,
+  MobaleBurgerLink,
+  MobaleBurgerUserDiv,
 } from "./MobaleBurger.Styled";
-
 import { selectUser } from "../../../store/selected";
 
-import { Link } from "react-router-dom";
+import IconHero from "../../../images/svg/IconHero";
 
 const MobaleBurger = ({
   isOpen,
@@ -17,6 +17,7 @@ const MobaleBurger = ({
   closeModal,
 }) => {
   const user = useSelector(selectUser);
+
   const handleLogOut = () => {
     closeModal();
     openLogAut();
@@ -35,20 +36,24 @@ const MobaleBurger = ({
     closeModal();
   };
   const CustomLink = ({ to, children, ...props }) => (
-    <Link
+    <MobaleBurgerLink
       to={to}
       onClick={handleLinkClick}
       style={{ textDecoration: "none" }}
       {...props}
     >
       {children}
-    </Link>
+    </MobaleBurgerLink>
   );
 
   return (
     <>
       <MobaleBurgerDiv className={isOpen ? "open" : ""}>
         <MobaleBurgerContainerDiv>
+          <MobaleBurgerUserDiv>
+            <IconHero />
+            <span>Hi, {user ? user.name : "friend"}</span>
+          </MobaleBurgerUserDiv>
           <CustomLink to="/" aria-label="Home">
             Home
           </CustomLink>

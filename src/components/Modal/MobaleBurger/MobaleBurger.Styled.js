@@ -1,11 +1,12 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const MobaleBurgerDiv = styled.div`
   background-color: #fff;
-  width: 300px;
-  height: 100%;
-  padding: 64px 20px;
-  border-radius: 0 30px 30px 0;
+  width: 60%;
+  height: 50%;
+
+  border-radius: 0 0 0 20px;
   position: fixed;
   top: 0;
   right: 0;
@@ -24,4 +25,20 @@ export const MobaleBurgerDiv = styled.div`
 export const MobaleBurgerContainerDiv = styled.div`
   display: flex;
   flex-direction: column;
+  height: 100%;
+  justify-content: space-around;
+`;
+
+export const MobaleBurgerUserDiv = styled.div`
+  display: flex;
+  align-content: center;
+  align-items: center;
+`;
+
+export const MobaleBurgerLink = styled(NavLink)`
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 88%;
+  letter-spacing: -0.02em;
+  color: #121417;
 `;

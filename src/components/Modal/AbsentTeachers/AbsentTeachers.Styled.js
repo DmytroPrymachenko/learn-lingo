@@ -2,7 +2,10 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 export const AbsentTeachersDiv = styled.div`
   background-color: #fff;
-  padding: 64px;
+  padding: 20px;
+  @media (min-width: 768px) {
+    padding: 64px;
+  }
   border-radius: 30px;
   position: fixed;
   top: 50%;

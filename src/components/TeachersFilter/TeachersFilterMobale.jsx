@@ -3,6 +3,7 @@ import BackdropActive from "../Backdrop/BackdropActive";
 import TeachersFilter from "./TeachersFilter";
 import {
   TeachersFilterMobaleButton,
+  TeachersFilterMobaleCloseButton,
   TeachersFilterMobaleDiv,
 } from "./TeachersFilter.Styles";
 import FilterSVG from "../../images/svg/FilterSVG";
@@ -34,6 +35,12 @@ const TeachersFilterMobale = ({ data, setTeachersFilter }) => {
                 data={data}
                 setTeachersFilter={setTeachersFilter}
               />
+              <TeachersFilterMobaleCloseButton>
+                <TeachersFilterMobaleButton onClick={closeModal}>
+                  <FilterSVG />
+                  <span>Close Filter</span>
+                </TeachersFilterMobaleButton>
+              </TeachersFilterMobaleCloseButton>
             </TeachersFilterMobaleDiv>
           </>
         )}
