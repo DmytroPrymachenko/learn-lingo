@@ -18,19 +18,25 @@ import IsLoading from "../IsLoading/IsLoading";
 //   ref,
 // } from "firebase/database";
 
-const TeachersList = ({ dataList }) => {
+const TeachersList = ({ dataList, setTest }) => {
   const [teachersList, setTeachersList] = useState(null);
   const [loadedItems, setLoadedItems] = useState(4);
   const [isLoadingState, setIsLoading] = useState(false);
+  const [favoriteChanged, setFavoriteChanged] = useState(false);
+
+  const handleFavoriteChange = () => {
+    setFavoriteChanged(!favoriteChanged);
+  };
 
   useEffect(() => {
     if (dataList) {
       setIsLoading(true);
-      console.log(dataList);
+
       setTeachersList(dataList);
       setIsLoading(false);
+      console.log(favoriteChanged);
     }
-  }, [dataList]);
+  }, [dataList, favoriteChanged]);
 
   const handleLoadMore = () => {
     setLoadedItems((prevLoadedItems) => prevLoadedItems + 4);
@@ -52,7 +58,12 @@ const TeachersList = ({ dataList }) => {
         <TeachersListDiv>
           <TeachersListUl>
             {teachersList.slice(0, loadedItems).map((item) => (
-              <TeachersItem key={nanoid()} item={item} />
+              <TeachersItem
+                key={nanoid()}
+                item={item}
+                handleFavoriteChange={handleFavoriteChange}
+                setTest={setTest}
+              />
             ))}
           </TeachersListUl>
           {teachersList.length > loadedItems && (

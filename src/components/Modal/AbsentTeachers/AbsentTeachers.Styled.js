@@ -51,6 +51,7 @@ export const AbsentContentDiv = styled.div`
   display: flex;
   gap: 30px;
   flex-direction: column;
+  max-width: 370px;
 `;
 
 export const AbsentCountdown = styled.span`

@@ -7,6 +7,10 @@ export const HomeDivLeft = styled.div`
   gap: 24px;
   padding-top: 20px;
   padding-bottom: 16px;
+  flex-direction: column-reverse;
+  @media (min-width: 1280px) {
+    flex-direction: row;
+  }
 `;
 
 export const HomeDivTitle = styled.div`
@@ -14,8 +18,11 @@ export const HomeDivTitle = styled.div`
   flex-direction: column;
   border-radius: 30px;
   justify-content: center;
-  padding: 98px 108px 98px 64px;
+  padding: 50px;
   background: #f8f8f8;
+  @media (min-width: 1280px) {
+    padding: 98px 108px 98px 64px;
+  }
 `;
 
 export const HomeTitleSpan = styled.span`
@@ -50,6 +57,7 @@ export const HomeTitleButton = styled.button`
 
 export const HomeStatisticsDiv = styled.div`
   position: relative;
+  padding-bottom: 50px;
 `;
 export const HomeDottedLineDiv = styled.div`
   position: relative;
@@ -61,13 +69,24 @@ export const HomeDottedLineDiv = styled.div`
   margin: 0 auto;
 `;
 export const HomeStatisticsUl = styled.ul`
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 3fr);
   justify-content: center;
-  align-items: center;
 
   position: absolute;
-  justify-content: space-between;
+
   width: 95%;
+  height: 100%;
+  justify-items: center;
+  /* sgsf */
+  @media (min-width: 1280px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    justify-content: space-between;
+  }
 `;
 export const HomeStatisticsli = styled.li`
   display: flex;
@@ -84,15 +103,23 @@ export const HomeStatisticsSpanNumber = styled.span`
   white-space: nowrap;
 `;
 export const HomeStatisticsSpanText = styled.span`
+  @media (max-width: 1279px) {
+    max-width: 70px;
+  }
   font-weight: 400;
   font-size: 14px;
   line-height: 129%;
   letter-spacing: -0.02em;
   color: rgba(18, 20, 23, 0.7);
   /* white-space: nowrap; */
+  width: 100%;
 `;
 
 export const HomeFrameLanguage = styled.div`
+  @media (max-width: 630px) {
+    width: 150px;
+    height: 35px;
+  }
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -106,8 +133,10 @@ export const HomeFrameLanguage = styled.div`
 `;
 export const HomeTitleH1 = styled.h1`
   max-width: 548px;
+  @media (max-width: 630px) {
+    font-size: 35px;
+  }
 
-  font-weight: 500;
   font-size: 48px;
   line-height: 117%;
   letter-spacing: -0.02em;

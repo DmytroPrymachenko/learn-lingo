@@ -37,9 +37,10 @@ import ModalLogin from "../Modal/ModalAuth/ModalLogin";
 import ModalRegister from "../Modal/ModalAuth/ModalRegister";
 import AuthorizationMessage from "../Modal/AuthorizationMessage/AuthorizationMessage";
 import BackdropActive from "../Backdrop/BackdropActive";
+import { useLocation } from "react-router-dom";
 const favArray = JSON.parse(localStorage.getItem("favorites")) ?? [];
 
-const TeachersItem = ({ item }) => {
+const TeachersItem = ({ item, handleFavoriteChange, setTest }) => {
   const [heart, setHeart] = useState(false);
   const [detailedInformationItem, setDetailedInformationItem] = useState(null);
   const [showModal, setshowModal] = useState(null);
@@ -49,6 +50,9 @@ const TeachersItem = ({ item }) => {
   const [isAuthorizationMessage, setIsAuthorizationMessage] = useState(false);
   const [isModalLogin, setIsModalLogin] = useState(false);
   const [isModalRegister, setIsModalRegister] = useState(false);
+  const [isModalFavorit, setIsModalFavorit] = useState(false);
+  const location = useLocation();
+
   const openModalLogin = () => {
     setIsModalLogin(true);
     setIsAuthorizationMessage(false);
@@ -102,12 +106,27 @@ const TeachersItem = ({ item }) => {
       localStorage.setItem("favorites", JSON.stringify(favArray));
       setHeart(!heart);
       console.log("favArray1", favArray);
+      setTest(favArray);
     } else {
       favArray.push(id);
       localStorage.setItem("favorites", JSON.stringify(favArray));
       setHeart(!heart);
     }
   }
+
+  const handleFavoriteClick = () => {
+    if (location.pathname === "/favorites") {
+      setIsModalFavorit(true);
+    } else {
+      user ? handleToggleFavorite(item) : needAuth();
+    }
+  };
+
+  const handleRemoveFavorite = () => {
+    handleToggleFavorite(item);
+    closeModal();
+    handleFavoriteChange();
+  };
 
   const checked = JSON.parse(localStorage.getItem("favorites"))?.includes(
     item.id
@@ -116,6 +135,14 @@ const TeachersItem = ({ item }) => {
     : null;
   return (
     <>
+      {isModalFavorit && (
+        <>
+          <div>
+            <button onClick={handleRemoveFavorite}>Видалити</button>
+            <button onClick={closeModal}>Залишити</button>
+          </div>
+        </>
+      )}
       {isModalLogin && (
         <>
           <ModalLogin closeModal={closeModal} />
@@ -191,9 +218,7 @@ const TeachersItem = ({ item }) => {
                     </TeachersItemPriceSpan>
                   </TeachersListStatusLi>
                 </TeachersListStatusUl>
-                <ButtonTeachersFavorite
-                  onClick={user ? () => handleToggleFavorite(item) : needAuth}
-                >
+                <ButtonTeachersFavorite onClick={handleFavoriteClick}>
                   {checked ? <HeartLikeActive /> : <HeartLike />}
                 </ButtonTeachersFavorite>
               </TeachersListStatusDivInternal>

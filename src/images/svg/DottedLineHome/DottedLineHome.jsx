@@ -11,7 +11,7 @@ const DottedLineHome = (props) => (
       height={116}
       x={1}
       y={1}
-      fill="none" // Ensure the fill is set to none
+      fill="none"
       stroke="#F4C550"
       strokeDasharray="15 15"
       strokeWidth={1.5}

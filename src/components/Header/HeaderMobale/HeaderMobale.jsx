@@ -64,7 +64,6 @@ const HeaderMobale = ({ openModalLogin, openModalRegister, openLogAut }) => {
                 <IconHero />
                 <ClientIsAuthorizedName>{user.name}</ClientIsAuthorizedName>
               </ClientIsAuthorizedNameDiv>
-              {/* бургер */}
 
               <>
                 <BurgerButton onClick={handleStateChange}>

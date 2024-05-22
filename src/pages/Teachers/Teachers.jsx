@@ -5,11 +5,25 @@ import TeachersList from "../../components/TeachersList/TeachersList";
 import { getDatabase, ref, onValue } from "firebase/database";
 import { query } from "firebase/database";
 import { SectionTeachers } from "./Teachers.Styles";
+import TeachersFilterMobale from "../../components/TeachersFilter/TeachersFilterMobale";
 
 const Teachers = () => {
   const [teachersData, setTeachersData] = useState(null);
   const [teachersFilter, setTeachersFilter] = useState(null);
   const [filteredList, setFilteredList] = useState(null);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const db = getDatabase();
 
@@ -30,10 +44,17 @@ const Teachers = () => {
   return (
     <>
       <SectionTeachers>
-        <TeachersFilter
-          data={teachersData}
-          setTeachersFilter={setTeachersFilter}
-        />
+        {windowWidth < 768 ? (
+          <TeachersFilterMobale
+            data={teachersData}
+            setTeachersFilter={setTeachersFilter}
+          />
+        ) : (
+          <TeachersFilter
+            data={teachersData}
+            setTeachersFilter={setTeachersFilter}
+          />
+        )}
         <TeachersList dataList={filteredList} />
       </SectionTeachers>
     </>

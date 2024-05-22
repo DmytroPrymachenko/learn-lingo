@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import HomePicture from "../../images/png/HomePicture";
-import DottedLineHome from "../../images/svg/DottedLineHome";
+import DottedLineHome from "../../images/svg/DottedLineHome/DottedLineHome";
 import {
   HomeDivLeft,
   HomeDivTitle,
@@ -15,8 +15,23 @@ import {
   HomeTitleH1,
   HomeTitleSpan,
 } from "./Home.Styled";
+import { useEffect, useState } from "react";
+import DottedLineHomeTablet from "../../images/svg/DottedLineHome/DottedLineHomeTablet";
 
 const Home = () => {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   return (
     <>
       <section>
@@ -43,7 +58,8 @@ const Home = () => {
       <section>
         <HomeStatisticsDiv>
           <HomeDottedLineDiv>
-            <DottedLineHome />
+            {windowWidth < 1280 ? <DottedLineHomeTablet /> : <DottedLineHome />}
+
             <HomeStatisticsUl>
               <HomeStatisticsli>
                 <HomeStatisticsSpanNumber>32,000 +</HomeStatisticsSpanNumber>
