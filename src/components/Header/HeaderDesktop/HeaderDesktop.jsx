@@ -6,7 +6,7 @@ import { selectUser } from "../../../store/selected";
 import { Link } from "react-router-dom";
 import IconHeader from "../../../images/svg/IconHeader";
 
-const HeaderDesktop = ({ openModalLogin, openModalRegister }) => {
+const HeaderDesktop = ({ openModalLogin, openModalRegister, openLogAut }) => {
   const user = useSelector(selectUser);
   return (
     <>
@@ -41,7 +41,7 @@ const HeaderDesktop = ({ openModalLogin, openModalRegister }) => {
         )}
       </HeaderDivLink>
       {user ? (
-        <HeaderClientIsAuthorized />
+        <HeaderClientIsAuthorized openLogAut={openLogAut} />
       ) : (
         <HeaderNeedAuthorization
           openModalLogin={openModalLogin}

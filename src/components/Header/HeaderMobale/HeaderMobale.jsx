@@ -16,7 +16,7 @@ import BackdropActive from "../../Backdrop/BackdropActive";
 import MobaleBurger from "../../Modal/MobaleBurger/MobaleBurger";
 import TestTest from "./TestTest";
 
-const HeaderMobale = ({ openModalLogin, openModalRegister }) => {
+const HeaderMobale = ({ openModalLogin, openModalRegister, openLogAut }) => {
   const user = useSelector(selectUser);
   const [isMobaleBurger, setIsMobaleBurger] = useState(false);
   const [isBackdropActiveOpen, setIsBackdropActiveOpen] = useState(false);
@@ -37,7 +37,13 @@ const HeaderMobale = ({ openModalLogin, openModalRegister }) => {
         {isBackdropActiveOpen && <BackdropActive closeModal={closeModal} />}
         {setIsMobaleBurger && (
           <>
-            <MobaleBurger closeModal={closeModal} isOpen={isMobaleBurger} />
+            <MobaleBurger
+              openLogAut={openLogAut}
+              closeModal={closeModal}
+              isOpen={isMobaleBurger}
+              openModalLogin={openModalLogin}
+              openModalRegister={openModalRegister}
+            />
           </>
         )}
       </>

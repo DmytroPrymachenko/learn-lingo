@@ -60,24 +60,3 @@ function App() {
 }
 
 export default App;
-
-// function App() {
-//   const { isAuth } = useAuth();
-//   return (
-//     <>
-//       <Routes>
-//         {isAuth ? (
-//           <Route element={<Layout />}>
-//             <Route path="/teachers" element={<Teachers />} />
-//             <Route path="/favorites" element={<Favorites />} />
-//             <Route path="*" element={<Navigate to="/teachers" />} />
-//           </Route>
-//         ) : (
-//           <Route path="/" element={<Home />} />
-//         )}
-//       </Routes>
-//     </>
-//   );
-// }
-
-// export default App;

@@ -9,6 +9,7 @@ import TeachersItem from "../TeachersItem/TeachersItem";
 import { useEffect, useState } from "react";
 import AbsentTeachers from "../Modal/AbsentTeachers/AbsentTeachers";
 import BackdropActive from "../Backdrop/BackdropActive";
+import IsLoading from "../IsLoading/IsLoading";
 // import {
 //   getDatabase,
 //   limitToFirst,
@@ -20,11 +21,14 @@ import BackdropActive from "../Backdrop/BackdropActive";
 const TeachersList = ({ dataList }) => {
   const [teachersList, setTeachersList] = useState(null);
   const [loadedItems, setLoadedItems] = useState(4);
+  const [isLoadingState, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (dataList) {
+      setIsLoading(true);
       console.log(dataList);
       setTeachersList(dataList);
+      setIsLoading(false);
     }
   }, [dataList]);
 
@@ -34,6 +38,11 @@ const TeachersList = ({ dataList }) => {
 
   return (
     <>
+      {isLoadingState && (
+        <>
+          <IsLoading />
+        </>
+      )}
       {!teachersList ? (
         <>
           <AbsentTeachers />
