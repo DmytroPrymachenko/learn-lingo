@@ -1,4 +1,4 @@
-import{j as e,p as t,N as c,r as d}from"./index-C6FyNhEE.js";const x="/learn-lingo/assets/HomePicturePng-Do9_14Pb.png",l=()=>e.jsx("div",{children:e.jsx("img",{src:x,alt:"Home Picture"})}),h=i=>e.jsx("svg",{xmlns:"http://www.w3.org/2000/svg",viewBox:"0 0 1314 118",preserveAspectRatio:"xMidYMid meet",style:{width:"100%",height:"auto"},...i,children:e.jsx("rect",{width:1312,height:116,x:1,y:1,fill:"none",stroke:"#F4C550",strokeDasharray:"15 15",strokeWidth:1.5,rx:30})}),p=t.div`
+import{j as e,p as t,N as c,r as a}from"./index-CScBS9qG.js";const x="/learn-lingo/assets/HomePicturePng-Do9_14Pb.png",l=()=>e.jsx("div",{children:e.jsx("img",{src:x,alt:"Home Picture"})}),h=i=>e.jsx("svg",{xmlns:"http://www.w3.org/2000/svg",viewBox:"0 0 1314 118",preserveAspectRatio:"xMidYMid meet",style:{width:"100%",height:"auto"},...i,children:e.jsx("rect",{width:1312,height:116,x:1,y:1,fill:"none",stroke:"#F4C550",strokeDasharray:"15 15",strokeWidth:1.5,rx:30})}),p=t.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -35,7 +35,6 @@ import{j as e,p as t,N as c,r as d}from"./index-C6FyNhEE.js";const x="/learn-lin
   color: #121417;
   border-radius: 12px;
   padding: 16px 88px;
-
   height: 60px;
   background: #f4c550;
   text-align: center;
@@ -45,6 +44,13 @@ import{j as e,p as t,N as c,r as d}from"./index-C6FyNhEE.js";const x="/learn-lin
   cursor: pointer;
   border: none;
   white-space: nowrap;
+  transition: background-color 0.5s ease;
+
+  &:hover,
+  &:focus {
+    background-color: #fbe9ba;
+  }
+
   @media (min-width: 1280px) {
     padding: 16px 88px;
     width: fit-content;
@@ -76,7 +82,7 @@ import{j as e,p as t,N as c,r as d}from"./index-C6FyNhEE.js";const x="/learn-lin
   width: 95%;
   height: 100%;
   justify-items: center;
-  /* sgsf */
+
   @media (min-width: 1280px) {
     display: flex;
     justify-content: center;
@@ -110,7 +116,7 @@ import{j as e,p as t,N as c,r as d}from"./index-C6FyNhEE.js";const x="/learn-lin
   line-height: 129%;
   letter-spacing: -0.02em;
   color: rgba(18, 20, 23, 0.7);
-  /* white-space: nowrap; */
+
   width: 100%;
 `,y=t.div`
   @media (max-width: 630px) {
@@ -127,7 +133,7 @@ import{j as e,p as t,N as c,r as d}from"./index-C6FyNhEE.js";const x="/learn-lin
   border-radius: 8px;
   z-index: 1;
   margin: 0 8px;
-`,v=t.h1`
+`,b=t.h1`
   max-width: 548px;
   @media (max-width: 630px) {
     font-size: 35px;
@@ -141,4 +147,4 @@ import{j as e,p as t,N as c,r as d}from"./index-C6FyNhEE.js";const x="/learn-lin
   position: relative;
   background: transparent;
   z-index: 2;
-`,b=i=>e.jsx("svg",{xmlns:"http://www.w3.org/2000/svg",viewBox:"0 0 300 110",style:{width:"100%",height:"auto"},...i,children:e.jsx("rect",{width:299.278,height:109.278,x:.361,y:.361,stroke:"#F4C550",fill:"none",strokeDasharray:"7.22 7.22",strokeWidth:.722,rx:14.07})}),H=i=>e.jsx("svg",{xmlns:"http://www.w3.org/2000/svg",width:230,height:340,fill:"none",...i,children:e.jsx("rect",{width:228.5,height:338.5,x:.75,y:.75,stroke:"#F4C550",strokeDasharray:"15 15",strokeWidth:1.5,rx:29.25})}),D=()=>{const[i,a]=d.useState(window.innerWidth);return d.useEffect(()=>{const r=()=>{a(window.innerWidth)};return window.addEventListener("resize",r),()=>{window.removeEventListener("resize",r)}},[]),e.jsxs(e.Fragment,{children:[e.jsx("section",{children:e.jsxs(p,{children:[e.jsxs(g,{children:[e.jsxs(v,{children:["Unlock your potential with the best",e.jsx(y,{children:"language"})," tutors"]}),e.jsx(m,{children:"Embark on an Exciting Language Journey with Expert Language Tutors: Elevate your language proficiency to new heights by connecting with highly qualified and experienced tutors."}),e.jsx(w,{to:"/teachers",children:"Get started"})]}),e.jsx("div",{children:e.jsx(l,{})})]})}),e.jsx("section",{children:e.jsx(u,{children:e.jsxs(f,{children:[i<480?e.jsx(H,{}):i<1280?e.jsx(b,{}):e.jsx(h,{}),e.jsxs(j,{children:[e.jsxs(n,{children:[e.jsx(s,{children:"32,000 +"}),e.jsx(o,{children:"Experienced tutors"})]}),e.jsxs(n,{children:[e.jsx(s,{children:"300,000 +"}),e.jsx(o,{children:"5-star tutor reviews"})]}),e.jsxs(n,{children:[e.jsx(s,{children:"120 +"}),e.jsx(o,{children:"Subjects taught"})]}),e.jsxs(n,{children:[e.jsx(s,{children:"200 +"}),e.jsx(o,{children:"Tutor nationalities"})]})]})]})})})]})};export{D as default};
+`,v=i=>e.jsx("svg",{xmlns:"http://www.w3.org/2000/svg",viewBox:"0 0 300 110",style:{width:"100%",height:"auto"},...i,children:e.jsx("rect",{width:299.278,height:109.278,x:.361,y:.361,stroke:"#F4C550",fill:"none",strokeDasharray:"7.22 7.22",strokeWidth:.722,rx:14.07})}),H=i=>e.jsx("svg",{xmlns:"http://www.w3.org/2000/svg",width:230,height:340,fill:"none",...i,children:e.jsx("rect",{width:228.5,height:338.5,x:.75,y:.75,stroke:"#F4C550",strokeDasharray:"15 15",strokeWidth:1.5,rx:29.25})}),D=()=>{const[i,d]=a.useState(window.innerWidth);return a.useEffect(()=>{const r=()=>{d(window.innerWidth)};return window.addEventListener("resize",r),()=>{window.removeEventListener("resize",r)}},[]),e.jsxs(e.Fragment,{children:[e.jsx("section",{children:e.jsxs(p,{children:[e.jsxs(g,{children:[e.jsxs(b,{children:["Unlock your potential with the best",e.jsx(y,{children:"language"})," tutors"]}),e.jsx(m,{children:"Embark on an Exciting Language Journey with Expert Language Tutors: Elevate your language proficiency to new heights by connecting with highly qualified and experienced tutors."}),e.jsx(w,{to:"/teachers",children:"Get started"})]}),e.jsx("div",{children:e.jsx(l,{})})]})}),e.jsx("section",{children:e.jsx(u,{children:e.jsxs(f,{children:[i<480?e.jsx(H,{}):i<1280?e.jsx(v,{}):e.jsx(h,{}),e.jsxs(j,{children:[e.jsxs(n,{children:[e.jsx(s,{children:"32,000 +"}),e.jsx(o,{children:"Experienced tutors"})]}),e.jsxs(n,{children:[e.jsx(s,{children:"300,000 +"}),e.jsx(o,{children:"5-star tutor reviews"})]}),e.jsxs(n,{children:[e.jsx(s,{children:"120 +"}),e.jsx(o,{children:"Subjects taught"})]}),e.jsxs(n,{children:[e.jsx(s,{children:"200 +"}),e.jsx(o,{children:"Tutor nationalities"})]})]})]})})})]})};export{D as default};
