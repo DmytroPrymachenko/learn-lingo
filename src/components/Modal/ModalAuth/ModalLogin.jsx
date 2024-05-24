@@ -11,6 +11,7 @@ import {
   ModalLoginH1,
   ModalLoginInput,
   ModalLoginInputDiv,
+  ModalLoginPasswordVisibility,
   ModalLoginSpan,
 } from "./ModalLogin.Styled";
 import * as yup from "yup";
@@ -22,6 +23,9 @@ import SVGEsc from "../../../images/svg/SVGEsc";
 import IsLoading from "../../IsLoading/IsLoading";
 import { useState } from "react";
 import { toast } from "react-toastify";
+
+import EyeOf from "../../../images/svg/eye/EyeOf";
+import EyeActives from "../../../images/svg/eye/EyeActives";
 
 const schema = yup.object({
   email: yup
@@ -48,6 +52,7 @@ const ModalLogin = ({ closeModal }) => {
     resolver: yupResolver(schema),
   });
   const [isLoading, setIsLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
 
   const handleLogin = ({ email, password }) => {
@@ -74,6 +79,10 @@ const ModalLogin = ({ closeModal }) => {
       .finally(() => {
         setIsLoading(false);
       });
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword((prevState) => !prevState);
   };
   return (
     <>
@@ -105,10 +114,23 @@ const ModalLogin = ({ closeModal }) => {
             <ModalLoginInputDiv>
               <ModalLoginInput
                 {...register("password")}
-                type="password"
+                type={showPassword ? "text" : "password"}
                 id="password"
                 placeholder="password"
               />
+              <ModalLoginPasswordVisibility onClick={togglePasswordVisibility}>
+                <>
+                  {showPassword ? (
+                    <>
+                      <EyeActives />
+                    </>
+                  ) : (
+                    <>
+                      <EyeOf />
+                    </>
+                  )}
+                </>
+              </ModalLoginPasswordVisibility>
               <ModalTrialSpanError>
                 {errors.password?.message}
               </ModalTrialSpanError>

@@ -12,6 +12,7 @@ import {
   ModalLoginButton,
   ModalLoginH1,
   ModalLoginInput,
+  ModalLoginPasswordVisibility,
 } from "./ModalLogin.Styled";
 import { useForm } from "react-hook-form";
 import {
@@ -19,6 +20,7 @@ import {
   ModalRegisterDivTitle,
   ModalRegisterFormDiv,
   ModalRegisterInputDiv,
+  ModalRegisterInputDivPassword,
   ModalRegisterSpan,
 } from "./ModalRegister.Styled";
 import { toast } from "react-toastify";
@@ -29,6 +31,8 @@ import { AuthorizationButtonEsc } from "../AuthorizationMessage/AuthorizationMes
 import SVGEsc from "../../../images/svg/SVGEsc";
 import { useState } from "react";
 import IsLoading from "../../IsLoading/IsLoading";
+import EyeActives from "../../../images/svg/eye/EyeActives";
+import EyeOf from "../../../images/svg/eye/EyeOf";
 
 const schema = yup.object({
   name: yup
@@ -39,9 +43,11 @@ const schema = yup.object({
     .string()
     .email("Please write a valid email")
     .matches(
-      /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/
+      /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/,
+      { message: "Please write a valid email" }
     )
     .required("The email is required"),
+
   password: yup
     .string()
     .min(6, "The password must contain a minimum of 6 characters")
@@ -60,6 +66,7 @@ const ModalRegister = ({ closeModal }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const onSubmit = ({ email, password, name }) => {
     setIsLoading(true);
@@ -94,7 +101,9 @@ const ModalRegister = ({ closeModal }) => {
         setIsLoading(false);
       });
   };
-
+  const togglePasswordVisibility = () => {
+    setShowPassword((prevState) => !prevState);
+  };
   return (
     <>
       <>
@@ -141,17 +150,32 @@ const ModalRegister = ({ closeModal }) => {
                   {errors.email?.message}
                 </ModalTrialSpanError>
               </div>
-              <div>
+              <ModalRegisterInputDivPassword>
                 <ModalLoginInput
                   {...register("password")}
                   type="password"
                   id="password"
                   placeholder="password"
                 />
+                <ModalLoginPasswordVisibility
+                  onClick={togglePasswordVisibility}
+                >
+                  <>
+                    {showPassword ? (
+                      <>
+                        <EyeActives />
+                      </>
+                    ) : (
+                      <>
+                        <EyeOf />
+                      </>
+                    )}
+                  </>
+                </ModalLoginPasswordVisibility>
                 <ModalTrialSpanError>
                   {errors.password?.message}
                 </ModalTrialSpanError>
-              </div>
+              </ModalRegisterInputDivPassword>
             </ModalRegisterInputDiv>
 
             <ModalLoginButton>Sign Up</ModalLoginButton>

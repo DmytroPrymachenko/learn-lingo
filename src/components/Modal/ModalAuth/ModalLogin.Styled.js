@@ -29,6 +29,18 @@ export const ModalLoginDiv = styled.div`
   justify-content: center;
   max-width: 438px;
 `;
+export const ModalLoginPasswordVisibility = styled.button`
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const ModalLoginSpan = styled.span`
   padding-bottom: 40px;
 `;
@@ -61,6 +73,7 @@ export const ModalLoginInputDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  position: relative;
 `;
 export const ModalLoginButton = styled.button`
   font-weight: 700;

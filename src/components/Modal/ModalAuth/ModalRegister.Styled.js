@@ -25,6 +25,10 @@ export const ModalRegisterDiv = styled.div`
   justify-content: center;
   max-width: 438px;
 `;
+
+export const ModalRegisterInputDivPassword = styled.div`
+  position: relative;
+`;
 export const ModalRegisterInputDiv = styled.div`
   display: flex;
   flex-direction: column;
