@@ -22,6 +22,7 @@ export const HeaderLink = styled(NavLink)`
   line-height: 20px;
   color: #121417;
   position: relative;
+  cursor: pointer;
 
   &::before {
     content: "";

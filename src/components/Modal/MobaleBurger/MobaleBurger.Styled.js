@@ -27,6 +27,8 @@ export const MobaleBurgerContainerDiv = styled.div`
   flex-direction: column;
   height: 100%;
   justify-content: space-around;
+  padding-right: 30px;
+  padding-left: 30px;
 `;
 
 export const MobaleBurgerUserDiv = styled.div`
@@ -36,13 +38,14 @@ export const MobaleBurgerUserDiv = styled.div`
 `;
 
 export const MobaleBurgerLink = styled(NavLink)`
-  width: 40%;
+  width: 120px;
   font-weight: 500;
   font-size: 24px;
   line-height: 100%;
   color: #121417;
   position: relative;
   display: inline-block;
+  cursor: pointer;
 
   &::before {
     content: "";
@@ -72,3 +75,23 @@ export const MobaleBurgerLink = styled(NavLink)`
   }
 `;
 export const MobaleBurgerUserH1 = styled.h1``;
+export const MobaleBurgerButton = styled.button`
+  border-radius: 12px;
+  padding: 8px 24px;
+  cursor: pointer;
+  border: none;
+  background: #f4c550;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 156%;
+  color: #121417;
+  &:hover,
+  &:focus {
+    background: #ffdc86;
+    box-shadow: 0 0 0 2px #ffdc86;
+    transform: scale(1.05);
+    transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out,
+      transform 0.2s ease-in-out;
+  }
+`;

@@ -22,6 +22,16 @@ export const TeachersItemMobaleStatusLi = styled.li`
     justify-content: space-between;
   }
 `;
+export const TeachersItemMobaleButtonDiv = styled.div`
+  display: flex;
+  padding-top: 10px;
+  justify-content: center;
+`;
+export const TeachersItemMobaleImageDiv = styled.div`
+  display: flex;
+  padding-bottom: 10px;
+  justify-content: center;
+`;
 export const TeachersItemMobaleContentDiv = styled.div`
   min-width: 1px;
 `;
@@ -41,7 +51,7 @@ export const TeachersItemMobaleButonReadMore = styled.button`
   padding: 4px 10px;
   border: none;
   background: #f4c550;
-
+  cursor: pointer;
   font-weight: 500;
   font-size: 16px;
   line-height: 156%;

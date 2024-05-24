@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const HomeDivLeft = styled.div`
@@ -35,7 +36,7 @@ export const HomeTitleSpan = styled.span`
   padding-bottom: 64px;
 `;
 
-export const HomeTitleButton = styled.button`
+export const HomeTitleButton = styled(NavLink)`
   font-family: var(--font-family);
   font-weight: 700;
   font-size: 18px;
@@ -43,7 +44,7 @@ export const HomeTitleButton = styled.button`
   color: #121417;
   border-radius: 12px;
   padding: 16px 88px;
-  width: 267px;
+
   height: 60px;
   background: #f4c550;
   text-align: center;
@@ -53,6 +54,10 @@ export const HomeTitleButton = styled.button`
   cursor: pointer;
   border: none;
   white-space: nowrap;
+  @media (min-width: 1280px) {
+    padding: 16px 88px;
+    width: fit-content;
+  }
 `;
 
 export const HomeStatisticsDiv = styled.div`
@@ -69,6 +74,12 @@ export const HomeDottedLineDiv = styled.div`
   margin: 0 auto;
 `;
 export const HomeStatisticsUl = styled.ul`
+  @media (max-width: 481px) {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 205px;
+  }
   display: grid;
   grid-template-columns: repeat(2, 3fr);
   justify-content: center;
@@ -89,6 +100,10 @@ export const HomeStatisticsUl = styled.ul`
   }
 `;
 export const HomeStatisticsli = styled.li`
+  @media (max-width: 481px) {
+    display: flex;
+    justify-content: space-between;
+  }
   display: flex;
   justify-content: center;
   align-items: center;

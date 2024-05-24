@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import {
+  MobaleBurgerButton,
   MobaleBurgerContainerDiv,
   MobaleBurgerDiv,
   MobaleBurgerLink,
@@ -70,12 +71,18 @@ const MobaleBurger = ({
           )}
           {user ? (
             <>
-              <button onClick={handleLogOut}>Вийти</button>
+              <MobaleBurgerButton onClick={handleLogOut}>
+                Вийти
+              </MobaleBurgerButton>
             </>
           ) : (
             <>
-              <button onClick={handleLogin}>Log in</button>
-              <button onClick={handleRegister}>Registration</button>
+              <MobaleBurgerButton onClick={handleLogin}>
+                Log in
+              </MobaleBurgerButton>
+              <MobaleBurgerButton onClick={handleRegister}>
+                Registration
+              </MobaleBurgerButton>
             </>
           )}
         </MobaleBurgerContainerDiv>

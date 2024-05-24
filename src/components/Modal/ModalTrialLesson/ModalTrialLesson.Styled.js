@@ -138,7 +138,7 @@ export const ModalTrialSpanError = styled.span`
 export const ModalTrialButton = styled.button`
   border-radius: 12px;
   padding: 16px;
-
+  cursor: pointer;
   background: #f4c550;
 
   font-weight: 700;

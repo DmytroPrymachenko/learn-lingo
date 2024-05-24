@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import HomePicture from "../../images/png/HomePicture";
 import DottedLineHome from "../../images/svg/DottedLineHome/DottedLineHome";
 import {
@@ -17,6 +16,7 @@ import {
 } from "./Home.Styled";
 import { useEffect, useState } from "react";
 import DottedLineHomeTablet from "../../images/svg/DottedLineHome/DottedLineHomeTablet";
+import DottedLineHomeMobile from "../../images/svg/DottedLineHome/DottedLineHomeMobile";
 
 const Home = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -46,9 +46,7 @@ const Home = () => {
               Tutors: Elevate your language proficiency to new heights by
               connecting with highly qualified and experienced tutors.
             </HomeTitleSpan>
-            <Link to="/teachers">
-              <HomeTitleButton>Get started</HomeTitleButton>
-            </Link>
+            <HomeTitleButton to="/teachers">Get started</HomeTitleButton>
           </HomeDivTitle>
           <div>
             <HomePicture />
@@ -58,7 +56,13 @@ const Home = () => {
       <section>
         <HomeStatisticsDiv>
           <HomeDottedLineDiv>
-            {windowWidth < 1280 ? <DottedLineHomeTablet /> : <DottedLineHome />}
+            {windowWidth < 480 ? (
+              <DottedLineHomeMobile />
+            ) : windowWidth < 1280 ? (
+              <DottedLineHomeTablet />
+            ) : (
+              <DottedLineHome />
+            )}
 
             <HomeStatisticsUl>
               <HomeStatisticsli>

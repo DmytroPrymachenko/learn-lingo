@@ -91,6 +91,16 @@ export const TeachersListStatusUl = styled.ul`
 `;
 export const TeachersListStatusLi = styled.li`
   display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4px;
+`;
+
+export const TeachersListStatusSpan = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4px;
 `;
 
 export const ButtonTeachersFavorite = styled.button`
@@ -100,6 +110,7 @@ export const ButtonTeachersFavorite = styled.button`
   padding: 0;
   border: none;
   background: none;
+  cursor: pointer;
 `;
 
 export const ButtonTeachersFavoriteTavletChecked = styled.button`
@@ -110,9 +121,17 @@ export const ButtonTeachersFavoriteTavletChecked = styled.button`
   background: transparent;
   border-radius: 12px;
   padding: 8px 24px;
-  border: none;
+  border: 2px solid #ffdc86;
   display: flex;
   align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: #ffd700;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
 `;
 
 export const ButtonTeachersFavoriteTavlet = styled.button`
@@ -120,12 +139,21 @@ export const ButtonTeachersFavoriteTavlet = styled.button`
   font-size: 18px;
   line-height: 156%;
   color: #121417;
-  background: #f4c550;
+  background: none;
   border-radius: 12px;
   padding: 8px 24px;
-  border: none;
+  border: 2px solid #f4c550;
   display: flex;
+  justify-content: center;
   align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    border-color: #ffd700;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
 `;
 
 export const TeachersItemParameters = styled.span`
@@ -133,6 +161,9 @@ export const TeachersItemParameters = styled.span`
   font-size: 16px;
   line-height: 1.5;
   color: #8a8a89;
+`;
+export const TeachersItemParametersText = styled.span`
+  color: #121417;
 `;
 export const TeachersItemTitleDiv = styled.div`
   display: flex;
@@ -162,6 +193,7 @@ export const TeachersItemReadMore = styled.button`
   color: #121417;
   background-color: transparent;
   border: none;
+  cursor: pointer;
 `;
 
 export const TeachersItemContentParams = styled.div`
@@ -194,6 +226,11 @@ export const TeachersItemlanguagesParamsUl = styled.ul`
 `;
 
 export const TeachersItemContentlevelsUl = styled.ul`
+  @media (max-width: 650px) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    min-width: 300px;
+  }
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -204,6 +241,12 @@ export const TeachersItemContentlevelsUl = styled.ul`
   }
 `;
 export const TeachersItemContentlevelsLi = styled.li`
+  @media (max-width: 650px) {
+    padding: 4px 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   justify-content: center;
   border-radius: 35px;
   padding: 8px 12px;
@@ -221,7 +264,7 @@ export const TeachersItemPriceSpan = styled.span`
 export const TeachersListLoadMore = styled.button`
   border-radius: 12px;
   padding: 16px 48px;
-
+  cursor: pointer;
   font-weight: 700;
   font-size: 18px;
   line-height: 156%;
@@ -240,6 +283,11 @@ export const TeachersitemLTitleDiv = styled.div`
 
 export const BookLessonButtonTabletDiv = styled.div`
   display: flex;
+  @media (max-width: 650px) {
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 15px;
+  }
   width: 100%;
   justify-content: space-around;
 `;

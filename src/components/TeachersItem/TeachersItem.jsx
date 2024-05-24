@@ -40,7 +40,10 @@ import BackdropActive from "../Backdrop/BackdropActive";
 import { useLocation } from "react-router-dom";
 
 import TeachersItemMobale from "./TeachersItemMobale";
+
+import DetailedInformationTablet from "../Modal/DetailedInformation/DetailedInformationTablet";
 import DetailedInformationMobale from "../Modal/DetailedInformation/DetailedInformationMobale";
+import RemoveTeacher from "../Modal/RemoveTeacher/RemoveTeacher";
 const favArray = JSON.parse(localStorage.getItem("favorites")) ?? [];
 
 const TeachersItem = ({
@@ -115,12 +118,21 @@ const TeachersItem = ({
     }
   };
 
+  const handleFavoriteClick = () => {
+    if (location.pathname === "/favorites") {
+      setIsModalFavorit(true);
+    } else {
+      user ? handleToggleFavorite(item) : needAuth();
+    }
+    setDetailedInformationItem(item);
+  };
+
   const closeModal = () => {
     setshowModal(false);
     setTrialLessonModal(false);
     setIsUserActive(false);
     setIsAuthorizationMessage(false);
-
+    setIsModalFavorit(false);
     setIsModalLogin(false);
     setIsModalRegister(false);
   };
@@ -155,14 +167,6 @@ const TeachersItem = ({
       }
     } else {
       needAuth();
-    }
-  };
-
-  const handleFavoriteClick = () => {
-    if (location.pathname === "/favorites") {
-      setIsModalFavorit(true);
-    } else {
-      user ? handleToggleFavorite(item) : needAuth();
     }
   };
 
@@ -213,10 +217,13 @@ const TeachersItem = ({
 
       {isModalFavorit && (
         <>
-          <div>
-            <button onClick={handleRemoveFavorite}>Видалити</button>
-            <button onClick={closeModal}>Залишити</button>
-          </div>
+          <>
+            <RemoveTeacher
+              handleRemoveFavorite={handleRemoveFavorite}
+              closeModal={closeModal}
+              item={detailedInformationItem}
+            />
+          </>
         </>
       )}
       {isModalLogin && (
@@ -267,17 +274,24 @@ const TeachersItem = ({
       {showModal && (
         <>
           <>
-            {windowWidth < 1280 ? (
-              <>
-                <DetailedInformationMobale
-                  item={detailedInformationItem}
-                  checked={checked}
-                  handleToggleFavorite={handleToggleFavorite}
-                  handleTrialLesson={handleTrialLesson}
-                  trialLesson={trialLessonModal}
-                  closeModal={closeModal}
-                />
-              </>
+            {windowWidth < 650 ? (
+              <DetailedInformationMobale
+                item={detailedInformationItem}
+                checked={checked}
+                handleToggleFavorite={handleToggleFavorite}
+                handleTrialLesson={handleTrialLesson}
+                trialLesson={trialLessonModal}
+                closeModal={closeModal}
+              />
+            ) : windowWidth < 1280 ? (
+              <DetailedInformationTablet
+                item={detailedInformationItem}
+                checked={checked}
+                handleToggleFavorite={handleToggleFavorite}
+                handleTrialLesson={handleTrialLesson}
+                trialLesson={trialLessonModal}
+                closeModal={closeModal}
+              />
             ) : (
               <DetailedInformation
                 item={detailedInformationItem}

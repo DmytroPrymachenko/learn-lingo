@@ -18,7 +18,9 @@ import {
   TeachersDivHeartLikeActive,
   TeachersItemMobaleButonDiv,
   TeachersItemMobaleButonReadMore,
+  TeachersItemMobaleButtonDiv,
   TeachersItemMobaleContentDiv,
+  TeachersItemMobaleImageDiv,
   TeachersItemMobaleLanguagesDiv,
   TeachersItemMobaleMinDiv,
   TeachersItemMobaleStatusDiv,
@@ -48,10 +50,12 @@ const TeachersItemMobale = ({
     <TeachersItemMobaleStatusLi>
       <div>
         <>
-          <TeachersListImageDiv>
-            <TeachersListImageTeacher src={item.avatar_url} alt="Teacher" />
-            <TeachersListImageActive />
-          </TeachersListImageDiv>
+          <TeachersItemMobaleImageDiv>
+            <TeachersListImageDiv>
+              <TeachersListImageTeacher src={item.avatar_url} alt="Teacher" />
+              <TeachersListImageActive />
+            </TeachersListImageDiv>
+          </TeachersItemMobaleImageDiv>
           <TeachersItemNameSpan>
             {item.name} {item.surname}
           </TeachersItemNameSpan>
@@ -82,7 +86,7 @@ const TeachersItemMobale = ({
                   </TeachersItemPriceSpan>
                 </TeachersListStatusLi>
               </ul>
-              <div>
+              <TeachersItemMobaleButtonDiv>
                 <>
                   <TeachersItemMobaleButonReadMore
                     onClick={handleShowModalItem}
@@ -90,7 +94,7 @@ const TeachersItemMobale = ({
                     Read more
                   </TeachersItemMobaleButonReadMore>
                 </>
-              </div>
+              </TeachersItemMobaleButtonDiv>
               <TeachersDivHeartLikeActive>
                 <>
                   <ButtonTeachersFavorite onClick={handleFavoriteClick}>

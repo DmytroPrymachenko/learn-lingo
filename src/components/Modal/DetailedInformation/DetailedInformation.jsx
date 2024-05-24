@@ -26,7 +26,9 @@ import HeartLikeActive from "../../../images/svg/HeartLikeActive";
 
 import {
   BookLessonButton,
+  DetailedInformationButtonESC,
   DetailedInformationDiv,
+  DetailedInformationDivLikEndExit,
   DetailedInformationExperience,
   DetailedInformationForm,
   DetailedReviewsComment,
@@ -38,12 +40,13 @@ import {
 } from "./DetailedInformation.Styled";
 import Star from "../../../images/svg/Star";
 import ImageForComent from "../../../images/png/imageForComent.png";
+import SVGEsc from "../../../images/svg/SVGEsc";
 
 const DetailedInformation = ({
   item,
   checked,
   handleToggleFavorite,
-
+  closeModal,
   handleTrialLesson,
 }) => {
   const handleToggle = () => {
@@ -92,9 +95,14 @@ const DetailedInformation = ({
                       </TeachersItemPriceSpan>
                     </TeachersListStatusLi>
                   </TeachersListStatusUl>
-                  <ButtonTeachersFavorite onClick={handleToggle}>
-                    {checked ? <HeartLikeActive /> : <HeartLike />}
-                  </ButtonTeachersFavorite>
+                  <DetailedInformationDivLikEndExit>
+                    <ButtonTeachersFavorite onClick={handleToggle}>
+                      {checked ? <HeartLikeActive /> : <HeartLike />}
+                    </ButtonTeachersFavorite>
+                    <DetailedInformationButtonESC onClick={closeModal}>
+                      <SVGEsc />
+                    </DetailedInformationButtonESC>
+                  </DetailedInformationDivLikEndExit>
                 </TeachersListStatusDivInternal>
               </TeachersListStatusDiv>
 
@@ -106,7 +114,6 @@ const DetailedInformation = ({
                       {item.languages.map((language, index) => (
                         <li key={index}>{"  " + language} </li>
                       ))}
-                      {/* <span>{item.languages.map((el) => el)}</span> */}
                     </TeachersItemlanguagesParamsUl>
                   </TeachersItemContentParamsLi>
                   <TeachersItemContentParamsLi>

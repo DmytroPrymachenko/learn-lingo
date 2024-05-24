@@ -46,6 +46,7 @@ export const AuthorizationMessageContentDiv = styled.div`
   flex-direction: column;
 `;
 export const AuthorizationButtonEsc = styled.button`
+  cursor: pointer;
   position: absolute;
   border: none;
   background-color: transparent;

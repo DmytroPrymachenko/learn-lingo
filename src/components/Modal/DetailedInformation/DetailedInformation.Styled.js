@@ -1,6 +1,12 @@
 import styled from "styled-components";
 
 export const DetailedInformationDiv = styled.div`
+  @media (max-width: 650px) {
+    padding: 12px;
+    overflow-y: auto;
+    max-height: 80vh;
+    width: 80%;
+  }
   min-width: 300px;
   background-color: #fff;
   padding: 24px;
@@ -13,7 +19,7 @@ export const DetailedInformationDiv = styled.div`
   z-index: 10;
   transition: transform 0.3s ease;
   &:hover {
-    transform: translate(-50%, -50%) scale(1.05); /* Enlarge on hover */
+    transform: translate(-50%, -50%) scale(1.05);
   }
 `;
 export const DetailedInformationForm = styled.div`
@@ -21,7 +27,11 @@ export const DetailedInformationForm = styled.div`
 
   gap: 48px;
 `;
+export const DetailedInformationDivLikEndExit = styled.div`
+  display: flex;
 
+  gap: 4px;
+`;
 export const DetailedInformationExperience = styled.p`
   font-weight: 400;
   font-size: 16px;
@@ -29,7 +39,35 @@ export const DetailedInformationExperience = styled.p`
   color: #121417;
   max-width: 968px;
 `;
+export const DetailedInformationButtonESC = styled.button`
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+`;
+export const DetailedInformationDivESC = styled.div`
+  position: absolute;
+  @media (max-width: 650px) {
+    top: 0%;
+    right: -1%;
+  }
+  top: -2%;
+  right: -2%;
+`;
+export const DetailedInformationDivContent = styled.div`
+  @media (max-width: 650px) {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
 
+  position: relative;
+`;
 export const ImageForComentDiv = styled.div`
   border-radius: 100px;
   width: 44px;
@@ -77,6 +115,7 @@ export const BookLessonButton = styled.button`
   border-radius: 12px;
   padding: 16px 48px;
   border: none;
+  cursor: pointer;
 `;
 
 export const BookLessonButtonTablet = styled.button`
@@ -88,10 +127,12 @@ export const BookLessonButtonTablet = styled.button`
   border-radius: 12px;
   padding: 8px 24px;
   border: none;
+  cursor: pointer;
 `;
 
 export const DetailedInformationMobaleUserDiv = styled.div`
   display: flex;
+  position: relative;
 `;
 
 export const DetailedInformationMobaleContentlevelsUl = styled.ul`
@@ -103,4 +144,30 @@ export const DetailedInformationMobaleContentlevelsUl = styled.ul`
     border: none;
     background: #f4c550;
   }
+`;
+
+export const DetailedMobUserNameDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+`;
+export const DetailedMobUserDiv = styled.div`
+  display: flex;
+  gap: 20px;
+`;
+export const DetailedMobUserNameContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+export const DetailedMobParamsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+`;
+export const DetailedMobInfoUl = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-bottom: 20px;
 `;
