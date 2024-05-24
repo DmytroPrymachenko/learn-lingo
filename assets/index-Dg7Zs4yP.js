@@ -1,4 +1,4 @@
-const __vite__fileDeps=["assets/Teachers-BclHWqVy.js","assets/TeachersFilterMobale-CyXNFjWY.js","assets/Favorites-DrfqqLkd.js"],__vite__mapDeps=i=>i.map(i=>__vite__fileDeps[i]);
+const __vite__fileDeps=["assets/Teachers-Dr55QG7a.js","assets/TeachersFilterMobale-B7_79U5l.js","assets/Favorites-BIXnvbp9.js"],__vite__mapDeps=i=>i.map(i=>__vite__fileDeps[i]);
 function Aw(e,t){for(var n=0;n<t.length;n++){const r=t[n];if(typeof r!="string"&&!Array.isArray(r)){for(const i in r)if(i!=="default"&&!(i in e)){const s=Object.getOwnPropertyDescriptor(r,i);s&&Object.defineProperty(e,i,s.get?s:{enumerable:!0,get:()=>r[i]})}}}return Object.freeze(Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}))}(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const i of document.querySelectorAll('link[rel="modulepreload"]'))r(i);new MutationObserver(i=>{for(const s of i)if(s.type==="childList")for(const o of s.addedNodes)o.tagName==="LINK"&&o.rel==="modulepreload"&&r(o)}).observe(document,{childList:!0,subtree:!0});function n(i){const s={};return i.integrity&&(s.integrity=i.integrity),i.referrerPolicy&&(s.referrerPolicy=i.referrerPolicy),i.crossOrigin==="use-credentials"?s.credentials="include":i.crossOrigin==="anonymous"?s.credentials="omit":s.credentials="same-origin",s}function r(i){if(i.ep)return;i.ep=!0;const s=n(i);fetch(i.href,s)}})();var tn=typeof globalThis<"u"?globalThis:typeof window<"u"?window:typeof global<"u"?global:typeof self<"u"?self:{};function Om(e){return e&&e.__esModule&&Object.prototype.hasOwnProperty.call(e,"default")?e.default:e}var Pm={exports:{}},Il={},Rm={exports:{}},X={};/**
  * @license React
  * react.production.min.js
@@ -147,6 +147,12 @@ Error generating stack: `+s.message+`
   align-items: center;
   justify-content: center;
   gap: 8px;
+  transition: transform 0.6s ease;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+  }
 `,m2=N.button`
   font-weight: 700;
   font-size: 16px;
@@ -161,6 +167,12 @@ Error generating stack: `+s.message+`
 
   outline: none;
   cursor: pointer;
+  transition: transform 0.6s ease;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+  }
 `;var I1={exports:{}},T1={};/**
  * @license React
  * use-sync-external-store-with-selector.production.min.js
@@ -1826,6 +1838,12 @@ attempted value: ${o}
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: transform 0.6s ease;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.3);
+  }
 `,o4=N.span`
   padding-bottom: 40px;
 `,a4=N.div`
@@ -1845,10 +1863,15 @@ attempted value: ${o}
   padding: 16px 16px 16px 18px;
   width: 100%;
   cursor: pointer;
+  transition: transform 0.6s ease, border-color 0.6s ease;
+
+  &:hover,
   &:focus {
+    transform: scale(1.1);
     border-color: #f4c550;
     outline: none;
   }
+  position: relative;
 `,fm=N.div`
   display: flex;
   flex-direction: column;
@@ -2164,7 +2187,7 @@ attempted value: ${o}
   width: 100%;
   height: 100%;
   backdrop-filter: grayscale(0%) blur(0);
-  z-index: 1;
+  z-index: 6;
   animation: ${V4} 0.3s ease-in forwards;
 `,Hd=({closeModal:e})=>v.jsx(B4,{onClick:e}),Kr=e=>e.user.user,Ih=e=>v.jsxs("svg",{xmlns:"http://www.w3.org/2000/svg",width:24,height:24,className:"h-full w-full",style:{color:"#e4ab00"},...e,children:[v.jsx("rect",{width:24,height:24,fill:"transparent",paintOrder:"stroke",rx:30}),v.jsx("svg",{xmlns:"http://www.w3.org/2000/svg",width:24,height:24,fill:"#E4AB00",style:{display:"inline-block",verticalAlign:"middle"},viewBox:"0 0 24 24",...e,children:v.jsx("path",{fill:"currentColor",fillRule:"evenodd",d:"M18.685 19.097A9.723 9.723 0 0 0 21.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 0 0 3.065 7.097A9.716 9.716 0 0 0 12 21.75a9.716 9.716 0 0 0 6.685-2.653Zm-12.54-1.285A7.486 7.486 0 0 1 12 15a7.486 7.486 0 0 1 5.855 2.812A8.224 8.224 0 0 1 12 20.25a8.224 8.224 0 0 1-5.855-2.438ZM15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z",clipRule:"evenodd"})})]}),Sw=N.div`
   display: flex;
@@ -2481,7 +2504,7 @@ attempted value: ${o}
   background-color: #f4c550;
   padding: 0 7px;
   border-radius: 5px;
-`,SO=()=>{const e=zr(),t=Wl(),[n,r]=T.useState(9),i=Vr(Kr);T.useEffect(()=>{if(n<=0){t("/");return}const o=setTimeout(()=>{r(n-1)},1e3);return()=>clearTimeout(o)},[n,e.pathname,t]);const s=()=>{t("/")};return v.jsxs(v.Fragment,{children:[v.jsx(Hd,{closeModal:s}),v.jsx(mO,{children:v.jsxs(wO,{children:[v.jsxs(vO,{children:["Hello, ",i&&i.name?i.name:"Friend","!"]}),v.jsxs(vm,{children:["You have navigated to a page that doesn't exist. For your convenience, you will be redirected to the main page in"," ",v.jsx(_O,{children:n})," seconds."]}),v.jsx(vm,{children:"To go there immediately, click the button below."}),v.jsx(yO,{to:"/","aria-label":"Home button",style:{textDecoration:"none"},children:"button"})]})})]})},xO=W.lazy(()=>zf(()=>import("./Home-CFL_r6TT.js"),[])),EO=W.lazy(()=>zf(()=>import("./Teachers-BclHWqVy.js"),__vite__mapDeps([0,1]))),kO=W.lazy(()=>zf(()=>import("./Favorites-DrfqqLkd.js"),__vite__mapDeps([2,1])));function CO(){const e=zr(),t=Vr(Kr),n=eu(),[r,i]=T.useState(!1);T.useEffect(()=>{if(!t){i(!0);const o=su();wb(o,a=>{a?n(ph({user:{email:a.email,id:a.uid,name:a.displayName},token:a.accessToken})):ne.info("User is signed out"),i(!1)})}},[n,t]);const s=e.pathname==="/";return v.jsxs(v.Fragment,{children:[v.jsx(v.Fragment,{children:r&&v.jsx(kr,{})}),v.jsx(gO,{isHomePage:s}),v.jsxs(Yx,{children:[v.jsxs(ei,{element:v.jsx(pO,{}),children:[v.jsx(ei,{path:"/",element:v.jsx(T.Suspense,{fallback:v.jsx(kr,{}),children:v.jsx(xO,{})})}),v.jsx(ei,{path:"/teachers",element:v.jsx(T.Suspense,{fallback:v.jsx(kr,{}),children:v.jsx(EO,{})})}),t&&v.jsx(ei,{path:"/favorites",element:v.jsx(T.Suspense,{fallback:v.jsx(kr,{}),children:v.jsx(kO,{})})})]}),v.jsx(ei,{path:"*",element:v.jsx(SO,{})})]})]})}var bO="firebase",IO="10.12.1";/**
+`,SO=()=>{const e=zr(),t=Wl(),[n,r]=T.useState(9),i=Vr(Kr);T.useEffect(()=>{if(n<=0){t("/");return}const o=setTimeout(()=>{r(n-1)},1e3);return()=>clearTimeout(o)},[n,e.pathname,t]);const s=()=>{t("/")};return v.jsxs(v.Fragment,{children:[v.jsx(Hd,{closeModal:s}),v.jsx(mO,{children:v.jsxs(wO,{children:[v.jsxs(vO,{children:["Hello, ",i&&i.name?i.name:"Friend","!"]}),v.jsxs(vm,{children:["You have navigated to a page that doesn't exist. For your convenience, you will be redirected to the main page in"," ",v.jsx(_O,{children:n})," seconds."]}),v.jsx(vm,{children:"To go there immediately, click the button below."}),v.jsx(yO,{to:"/","aria-label":"Home button",style:{textDecoration:"none"},children:"button"})]})})]})},xO=W.lazy(()=>zf(()=>import("./Home-Dr90fVJq.js"),[])),EO=W.lazy(()=>zf(()=>import("./Teachers-Dr55QG7a.js"),__vite__mapDeps([0,1]))),kO=W.lazy(()=>zf(()=>import("./Favorites-BIXnvbp9.js"),__vite__mapDeps([2,1])));function CO(){const e=zr(),t=Vr(Kr),n=eu(),[r,i]=T.useState(!1);T.useEffect(()=>{if(!t){i(!0);const o=su();wb(o,a=>{a?n(ph({user:{email:a.email,id:a.uid,name:a.displayName},token:a.accessToken})):ne.info("User is signed out"),i(!1)})}},[n,t]);const s=e.pathname==="/";return v.jsxs(v.Fragment,{children:[v.jsx(v.Fragment,{children:r&&v.jsx(kr,{})}),v.jsx(gO,{isHomePage:s}),v.jsxs(Yx,{children:[v.jsxs(ei,{element:v.jsx(pO,{}),children:[v.jsx(ei,{path:"/",element:v.jsx(T.Suspense,{fallback:v.jsx(kr,{}),children:v.jsx(xO,{})})}),v.jsx(ei,{path:"/teachers",element:v.jsx(T.Suspense,{fallback:v.jsx(kr,{}),children:v.jsx(EO,{})})}),t&&v.jsx(ei,{path:"/favorites",element:v.jsx(T.Suspense,{fallback:v.jsx(kr,{}),children:v.jsx(kO,{})})})]}),v.jsx(ei,{path:"*",element:v.jsx(SO,{})})]})]})}var bO="firebase",IO="10.12.1";/**
  * @license
  * Copyright 2020 Google LLC
  *

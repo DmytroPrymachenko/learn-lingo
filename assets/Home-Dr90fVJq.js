@@ -1,4 +1,4 @@
-import{j as e,p as t,N as c,r as a}from"./index-CM3uemVy.js";const x="/learn-lingo/assets/HomePicturePng-Do9_14Pb.png",l=()=>e.jsx("div",{children:e.jsx("img",{src:x,alt:"Home Picture"})}),h=i=>e.jsx("svg",{xmlns:"http://www.w3.org/2000/svg",viewBox:"0 0 1314 118",preserveAspectRatio:"xMidYMid meet",style:{width:"100%",height:"auto"},...i,children:e.jsx("rect",{width:1312,height:116,x:1,y:1,fill:"none",stroke:"#F4C550",strokeDasharray:"15 15",strokeWidth:1.5,rx:30})}),p=t.div`
+import{j as e,p as t,N as c,r as a}from"./index-Dg7Zs4yP.js";const x="/learn-lingo/assets/HomePicturePng-Do9_14Pb.png",l=()=>e.jsx("div",{children:e.jsx("img",{src:x,alt:"Home Picture"})}),h=i=>e.jsx("svg",{xmlns:"http://www.w3.org/2000/svg",viewBox:"0 0 1314 118",preserveAspectRatio:"xMidYMid meet",style:{width:"100%",height:"auto"},...i,children:e.jsx("rect",{width:1312,height:116,x:1,y:1,fill:"none",stroke:"#F4C550",strokeDasharray:"15 15",strokeWidth:1.5,rx:30})}),p=t.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -44,10 +44,12 @@ import{j as e,p as t,N as c,r as a}from"./index-CM3uemVy.js";const x="/learn-lin
   cursor: pointer;
   border: none;
   white-space: nowrap;
-  transition: background-color 0.5s ease;
+
+  transition: transform 0.6s ease, background-color 0.6s ease;
 
   &:hover,
   &:focus {
+    transform: scale(1.2);
     background-color: #fbe9ba;
   }
 
