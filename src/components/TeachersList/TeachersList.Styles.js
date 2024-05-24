@@ -194,6 +194,12 @@ export const TeachersItemReadMore = styled.button`
   background-color: transparent;
   border: none;
   cursor: pointer;
+  transition: color 0.3s ease;
+
+  &:hover,
+  &:focus {
+    color: #f4c550;
+  }
 `;
 
 export const TeachersItemContentParams = styled.div`

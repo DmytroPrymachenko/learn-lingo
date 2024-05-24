@@ -33,4 +33,12 @@ export const ClientIsAuthorizedButton = styled.button`
   justify-content: center;
   align-items: center;
   gap: 8px;
+  transition: color 0.5s ease;
+
+  &:hover,
+  &:focus {
+    & > span {
+      color: #f4c550;
+    }
+  }
 `;
