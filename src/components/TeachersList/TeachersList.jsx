@@ -54,7 +54,6 @@ const TeachersList = ({ dataList }) => {
                 key={nanoid()}
                 item={item}
                 handleFavoriteChange={handleFavoriteChange}
-                // setTest={setTest}
               />
             ))}
           </TeachersListUl>

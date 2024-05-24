@@ -11,7 +11,6 @@ import { useEffect, useState } from "react";
 const customComponents = {
   padding: "0",
 
-  //   dropdownIndicator: () => ({ display: "none" }),
   indicatorSeparator: () => ({
     display: "none",
   }),
@@ -79,7 +78,6 @@ const customComponents = {
     lineHeight: "125%",
 
     fontSize: "18px",
-    // lineHeight: "111%",
   }),
   singleValue: (provided) => ({
     ...provided,
@@ -88,7 +86,6 @@ const customComponents = {
 };
 
 const TeachersFilter = ({ data, setTeachersFilter }) => {
-  // const [teachersFilter, setTeachersFilter] = useState(null);
   const [selectedData, setSelectedData] = useState(null);
   const [selectedLanguage, setSelectedLanguage] = useState(null);
   const [selectedPrice, setSelectedPrice] = useState(null);
@@ -97,21 +94,18 @@ const TeachersFilter = ({ data, setTeachersFilter }) => {
   useEffect(() => {
     let filteredData = data;
 
-    // Фільтрація за мовою
     if (selectedLanguage || null) {
       filteredData = filteredData.filter((teacher) =>
         teacher.languages.includes(selectedLanguage)
       );
     }
 
-    // Фільтрація за левелом
     if (selectedLevel || null) {
       filteredData = filteredData.filter((teacher) =>
         teacher.levels.includes(selectedLevel)
       );
     }
 
-    // Фільтрація за ціною
     if (selectedPrice || null) {
       filteredData = filteredData.filter(
         (teacher) => teacher.price_per_hour === selectedPrice

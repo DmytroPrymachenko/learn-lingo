@@ -74,7 +74,6 @@ const Header = () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
-  // Вийти
 
   const openModalLogin = () => {
     setIsModalLogin((prevState) => !prevState);

@@ -1,4 +1,3 @@
-// import { useState } from "react";
 import { useState } from "react";
 import {
   ModalTrialAvatarImg,
@@ -118,7 +117,6 @@ const ModalTrialLesson = ({ item }) => {
                   type="radio"
                   id="career"
                   value="Career and business"
-                  // checked
                   onChange={handleRadioChange}
                 />
               </RadioInputDiv>
@@ -138,7 +136,6 @@ const ModalTrialLesson = ({ item }) => {
                   {...register("reason")}
                   type="radio"
                   id="Lesson"
-                  // name="reason"
                   value="Lesson for kids"
                   onChange={handleRadioChange}
                 />

@@ -46,11 +46,7 @@ import DetailedInformationMobale from "../Modal/DetailedInformation/DetailedInfo
 import RemoveTeacher from "../Modal/RemoveTeacher/RemoveTeacher";
 const favArray = JSON.parse(localStorage.getItem("favorites")) ?? [];
 
-const TeachersItem = ({
-  item,
-  handleFavoriteChange,
-  // setTest
-}) => {
+const TeachersItem = ({ item, handleFavoriteChange }) => {
   const [heart, setHeart] = useState(false);
   const [detailedInformationItem, setDetailedInformationItem] = useState(null);
   const [showModal, setshowModal] = useState(null);
@@ -63,7 +59,7 @@ const TeachersItem = ({
   const [isModalFavorit, setIsModalFavorit] = useState(false);
   const location = useLocation();
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  // Перевірка
+
   useEffect(() => {
     if (
       trialLessonModal ||

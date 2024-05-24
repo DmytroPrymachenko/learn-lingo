@@ -50,7 +50,7 @@ export const AbsentSpan = styled.span`
 
   color: #121417;
 `;
-// export const AbsentTeachersDiv = styled.div``;
+
 export const AbsentContentDiv = styled.div`
   display: flex;
   gap: 30px;
