@@ -15,6 +15,22 @@ export const HeaderDivLink = styled.div`
   gap: 28px;
 `;
 
+export const HeaderLinkLogo = styled(NavLink)`
+  transition: transform 0.6s ease;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.3);
+  }
+`;
+export const HeaderLinkLogoDiv = styled.div`
+  transition: transform 0.6s ease;
+
+  &:hover {
+    transform: scale(1.3);
+  }
+`;
+
 export const Backdrop = styled.div``;
 export const HeaderLink = styled(NavLink)`
   font-weight: 400;
@@ -50,6 +66,12 @@ export const HeaderLink = styled(NavLink)`
   &.inactive::before {
     width: 0;
     opacity: 0;
+  }
+  transition: transform 0.6s ease;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.3);
   }
 `;
 

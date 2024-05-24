@@ -1,24 +1,29 @@
 import { useSelector } from "react-redux";
-import { HeaderDivLink, HeaderLink } from "../Header.Styled";
+import {
+  HeaderDivLink,
+  HeaderLink,
+  HeaderLinkLogo,
+  HeaderLinkLogoDiv,
+} from "../Header.Styled";
 import HeaderClientIsAuthorized from "../HeaderClientIsAuthorized/HeaderClientIsAuthorized";
 import HeaderNeedAuthorization from "../HeaderNeedAuthorization/HeaderNeedAuthorization";
 import { selectUser } from "../../../store/selected";
-import { Link } from "react-router-dom";
+
 import IconHeader from "../../../images/svg/IconHeader";
 
 const HeaderDesktop = ({ openModalLogin, openModalRegister, openLogAut }) => {
   const user = useSelector(selectUser);
   return (
     <>
-      <div>
-        <Link
+      <HeaderLinkLogoDiv>
+        <HeaderLinkLogo
           to="/"
           aria-label="logo and return to the main page"
           style={{ textDecoration: "none" }}
         >
           <IconHeader />
-        </Link>
-      </div>
+        </HeaderLinkLogo>
+      </HeaderLinkLogoDiv>
       <HeaderDivLink>
         <HeaderLink to="/" aria-label="Home" style={{ textDecoration: "none" }}>
           Home

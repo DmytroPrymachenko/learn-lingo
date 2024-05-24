@@ -25,6 +25,11 @@ export const TeachersListLi = styled.li`
   gap: 48px;
   width: 100%;
   max-width: 1184px;
+  transition: transform 0.6s ease;
+
+  &:hover {
+    transform: scale(1.08);
+  }
 `;
 
 export const TeachersListImageTeacher = styled.img`

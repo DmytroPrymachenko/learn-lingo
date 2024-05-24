@@ -34,6 +34,11 @@ export const ClientIsAuthorizedButton = styled.button`
   align-items: center;
   gap: 8px;
   transition: color 0.5s ease;
+  transition: transform 0.6s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 
   &:hover,
   &:focus {
