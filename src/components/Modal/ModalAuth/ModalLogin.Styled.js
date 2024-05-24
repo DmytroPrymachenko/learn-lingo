@@ -39,6 +39,12 @@ export const ModalLoginPasswordVisibility = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: transform 0.6s ease;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.3);
+  }
 `;
 
 export const ModalLoginSpan = styled.span`
@@ -64,10 +70,15 @@ export const ModalLoginInput = styled.input`
   padding: 16px 16px 16px 18px;
   width: 100%;
   cursor: pointer;
+  transition: transform 0.6s ease, border-color 0.6s ease;
+
+  &:hover,
   &:focus {
+    transform: scale(1.1);
     border-color: #f4c550;
     outline: none;
   }
+  position: relative;
 `;
 export const ModalLoginInputDiv = styled.div`
   display: flex;

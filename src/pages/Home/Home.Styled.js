@@ -53,10 +53,12 @@ export const HomeTitleButton = styled(NavLink)`
   cursor: pointer;
   border: none;
   white-space: nowrap;
-  transition: background-color 0.5s ease;
+
+  transition: transform 0.6s ease, background-color 0.6s ease;
 
   &:hover,
   &:focus {
+    transform: scale(1.2);
     background-color: #fbe9ba;
   }
 

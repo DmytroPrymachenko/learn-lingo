@@ -16,6 +16,6 @@ export const BackdropDiv = styled.div`
   width: 100%;
   height: 100%;
   backdrop-filter: grayscale(0%) blur(0);
-  z-index: 1;
+  z-index: 6;
   animation: ${fadeIn} 0.3s ease-in forwards;
 `;

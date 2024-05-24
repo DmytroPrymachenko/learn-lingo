@@ -4,6 +4,7 @@ import {
   FilterInputDivLevel,
   FilterInputDivPrice,
   TeachersFilterDiv,
+  TeachersFilterSection,
   TeachersFilterSpan,
 } from "./TeachersFilter.Styles";
 import { useEffect, useState } from "react";
@@ -226,7 +227,7 @@ const TeachersFilter = ({ data, setTeachersFilter }) => {
   return (
     <>
       <>
-        <section>
+        <TeachersFilterSection>
           <TeachersFilterDiv>
             <FilterInputDivLanguages>
               <TeachersFilterSpan>Languages</TeachersFilterSpan>
@@ -271,7 +272,7 @@ const TeachersFilter = ({ data, setTeachersFilter }) => {
               />
             </FilterInputDivPrice>
           </TeachersFilterDiv>
-        </section>
+        </TeachersFilterSection>
       </>
     </>
   );

@@ -1,11 +1,16 @@
 import styled from "styled-components";
 
+export const TeachersFilterSection = styled.section`
+  z-index: 2;
+`;
+
 export const TeachersFilterDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding-left: 20px;
   gap: 20px;
+
   @media (min-width: 768px) {
     align-items: center;
     padding-left: 0px;
@@ -21,6 +26,12 @@ export const TeachersFilterSpan = styled.span`
   color: #8a8a89;
 `;
 export const FilterInputDivLanguages = styled.div`
+  transition: transform 0.6s ease;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+  }
   width: 100%;
   @media (min-width: 768px) {
     width: 220px;
@@ -28,12 +39,24 @@ export const FilterInputDivLanguages = styled.div`
 `;
 export const FilterInputDivLevel = styled.div`
   width: 100%;
+  transition: transform 0.6s ease;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+  }
   @media (min-width: 768px) {
     width: 200px;
   }
 `;
 export const FilterInputDivPrice = styled.div`
   width: 100%;
+  transition: transform 0.6s ease;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+  }
   @media (min-width: 768px) {
     width: 125px;
   }

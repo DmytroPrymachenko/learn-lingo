@@ -96,6 +96,12 @@ export const HeaderButtonLogin = styled.button`
   align-items: center;
   justify-content: center;
   gap: 8px;
+  transition: transform 0.6s ease;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+  }
 `;
 
 export const HeaderButtonRegistration = styled.button`
@@ -112,4 +118,10 @@ export const HeaderButtonRegistration = styled.button`
 
   outline: none;
   cursor: pointer;
+  transition: transform 0.6s ease;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+  }
 `;
