@@ -111,6 +111,12 @@ export const ButtonTeachersFavorite = styled.button`
   border: none;
   background: none;
   cursor: pointer;
+  transition: transform 0.2s ease;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.3);
+  }
 `;
 
 export const ButtonTeachersFavoriteTavletChecked = styled.button`
@@ -194,11 +200,14 @@ export const TeachersItemReadMore = styled.button`
   background-color: transparent;
   border: none;
   cursor: pointer;
-  transition: color 0.3s ease;
+  transition: color 0.5s ease;
+
+  transition: transform 0.6s ease;
 
   &:hover,
   &:focus {
     color: #f4c550;
+    transform: scale(1.3);
   }
 `;
 
