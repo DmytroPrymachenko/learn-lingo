@@ -1,20 +1,7 @@
 import styled from "styled-components";
-export const ModalDivLogin = styled.div`
-  /* position: fixed;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center; */
-`;
+export const ModalDivLogin = styled.div``;
 
-export const ModalLoginFormDiv = styled.div`
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
-`;
+export const ModalLoginFormDiv = styled.div``;
 
 export const ModalLoginForm = styled.form`
   min-width: 300px;
@@ -32,7 +19,7 @@ export const ModalLoginForm = styled.form`
   z-index: 10;
   transition: transform 0.3s ease;
   &:hover {
-    transform: translate(-50%, -50%) scale(1.05); /* Enlarge on hover */
+    transform: translate(-50%, -50%) scale(1.05);
   }
 `;
 export const ModalLoginDiv = styled.div`

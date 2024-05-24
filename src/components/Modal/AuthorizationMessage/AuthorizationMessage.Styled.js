@@ -15,7 +15,7 @@ export const AuthorizationMessageDiv = styled.div`
   z-index: 10;
   transition: transform 0.3s ease;
   &:hover {
-    transform: translate(-50%, -50%) scale(1.05); /* Enlarge on hover */
+    transform: translate(-50%, -50%) scale(1.05);
   }
 `;
 

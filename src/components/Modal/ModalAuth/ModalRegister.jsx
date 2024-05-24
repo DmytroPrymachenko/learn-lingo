@@ -153,13 +153,7 @@ const ModalRegister = ({ closeModal }) => {
                 </ModalTrialSpanError>
               </div>
             </ModalRegisterInputDiv>
-            {/* <ModalLoginInput
-            {...register("repeatPassword")}
-            type="password"
-            id="repeatPassword"
-            placeholder="repeat password"
-          />
-          {errors.repeatPassword?.message} */}
+
             <ModalLoginButton>Sign Up</ModalLoginButton>
           </form>
         </ModalRegisterDiv>

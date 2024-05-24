@@ -23,6 +23,11 @@ export const HeaderLink = styled(NavLink)`
   color: #121417;
   position: relative;
   cursor: pointer;
+  transition: color 0.5s ease;
+
+  &:hover {
+    color: #f4c550;
+  }
 
   &::before {
     content: "";

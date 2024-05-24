@@ -44,7 +44,6 @@ export const HomeTitleButton = styled(NavLink)`
   color: #121417;
   border-radius: 12px;
   padding: 16px 88px;
-
   height: 60px;
   background: #f4c550;
   text-align: center;
@@ -54,6 +53,13 @@ export const HomeTitleButton = styled(NavLink)`
   cursor: pointer;
   border: none;
   white-space: nowrap;
+  transition: background-color 0.5s ease;
+
+  &:hover,
+  &:focus {
+    background-color: #fbe9ba;
+  }
+
   @media (min-width: 1280px) {
     padding: 16px 88px;
     width: fit-content;
@@ -89,7 +95,7 @@ export const HomeStatisticsUl = styled.ul`
   width: 95%;
   height: 100%;
   justify-items: center;
-  /* sgsf */
+
   @media (min-width: 1280px) {
     display: flex;
     justify-content: center;
@@ -126,7 +132,7 @@ export const HomeStatisticsSpanText = styled.span`
   line-height: 129%;
   letter-spacing: -0.02em;
   color: rgba(18, 20, 23, 0.7);
-  /* white-space: nowrap; */
+
   width: 100%;
 `;
 

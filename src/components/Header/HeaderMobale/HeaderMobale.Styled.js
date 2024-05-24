@@ -13,7 +13,7 @@ export const BurgerButton = styled.button`
   height: 35px;
   align-items: center;
   justify-content: center;
-  /* margin: 0 auto; */
+
   border: none;
   cursor: pointer;
   background-color: transparent;
