@@ -36,9 +36,39 @@ export const MobaleBurgerUserDiv = styled.div`
 `;
 
 export const MobaleBurgerLink = styled(NavLink)`
+  width: 40%;
   font-weight: 500;
-  font-size: 12px;
-  line-height: 88%;
-  letter-spacing: -0.02em;
+  font-size: 24px;
+  line-height: 100%;
   color: #121417;
+  position: relative;
+  display: inline-block;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -15px;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-color: #f4c550;
+    border-radius: 50%;
+    transition: width 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    opacity: 0;
+  }
+
+  &.active::before {
+    width: 20px;
+    opacity: 1;
+  }
+
+  &.inactive::before {
+    width: 0;
+    opacity: 0;
+  }
+  &.active {
+    color: #f4c550;
+  }
 `;
+export const MobaleBurgerUserH1 = styled.h1``;

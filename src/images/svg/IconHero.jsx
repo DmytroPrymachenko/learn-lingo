@@ -1,8 +1,8 @@
 const IconHero = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width={24} // Changed width to 24px
-    height={24} // Changed height to 24px
+    width={24}
+    height={24}
     className="h-full w-full"
     style={{
       color: "#e4ab00",

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const DetailedInformationDiv = styled.div`
+  min-width: 300px;
   background-color: #fff;
   padding: 24px;
   border-radius: 30px;
@@ -76,4 +77,30 @@ export const BookLessonButton = styled.button`
   border-radius: 12px;
   padding: 16px 48px;
   border: none;
+`;
+
+export const BookLessonButtonTablet = styled.button`
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 156%;
+  color: #121417;
+  background: #f4c550;
+  border-radius: 12px;
+  padding: 8px 24px;
+  border: none;
+`;
+
+export const DetailedInformationMobaleUserDiv = styled.div`
+  display: flex;
+`;
+
+export const DetailedInformationMobaleContentlevelsUl = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 8px;
+  > li:first-child {
+    border: none;
+    background: #f4c550;
+  }
 `;

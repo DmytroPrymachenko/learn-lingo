@@ -3,7 +3,6 @@ import IconHeader from "../../../images/svg/IconHeader";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../../store/selected";
 
-import HeaderNeedAuthorization from "../HeaderNeedAuthorization/HeaderNeedAuthorization";
 import {
   ClientIsAuthorizedDiv,
   ClientIsAuthorizedName,
@@ -73,10 +72,9 @@ const HeaderMobale = ({ openModalLogin, openModalRegister, openLogAut }) => {
             </ClientIsAuthorizedDiv>
           </>
         ) : (
-          <HeaderNeedAuthorization
-            openModalLogin={openModalLogin}
-            openModalRegister={openModalRegister}
-          />
+          <BurgerButton onClick={handleStateChange}>
+            <TestTest />
+          </BurgerButton>
         )}
       </HeaderMobaleDiv>
     </>

@@ -27,6 +27,8 @@ import { ModalTrialSpanError } from "../ModalTrialLesson/ModalTrialLesson.Styled
 
 import { AuthorizationButtonEsc } from "../AuthorizationMessage/AuthorizationMessage.Styled";
 import SVGEsc from "../../../images/svg/SVGEsc";
+import { useState } from "react";
+import IsLoading from "../../IsLoading/IsLoading";
 
 const schema = yup.object({
   name: yup
@@ -44,10 +46,6 @@ const schema = yup.object({
     .string()
     .min(6, "The password must contain a minimum of 6 characters")
     .required("The password is required"),
-  // repeatPassword: yup
-  //   .string()
-  //   .oneOf([yup.ref("password"), null], "Passwords must match")
-  //   .required("You need to repeat your password"),
 });
 
 const ModalRegister = ({ closeModal }) => {
@@ -61,93 +59,112 @@ const ModalRegister = ({ closeModal }) => {
   });
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit = ({ email, password, name }) => {
+    setIsLoading(true);
     const auth = getAuth();
 
-    createUserWithEmailAndPassword(auth, email, password, name)
+    createUserWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
-        updateProfile(auth.currentUser, {
-          displayName: name,
-        }).then(() => {
-          dispatch(
-            setUser({
-              user: {
-                email: user.email,
-                name: user.displayName,
-                id: user.uid,
-              },
-
-              token: user.accessToken,
-            })
-          );
-        });
-        console.log(user);
-        toast.success(`Welcome`);
-        navigate("/teachers");
-        closeModal();
+        updateProfile(auth.currentUser, { displayName: name })
+          .then(() => {
+            dispatch(
+              setUser({
+                user: {
+                  email: user.email,
+                  name: user.displayName,
+                  id: user.uid,
+                },
+                token: user.accessToken,
+              })
+            );
+            console.log(user);
+            toast.success(`Welcome`);
+            navigate("/teachers");
+            closeModal();
+          })
+          .finally(() => {
+            setIsLoading(false);
+          });
       })
-
-      .catch(console.error);
+      .catch((error) => {
+        console.error(error);
+        toast.error("Failed to create user: " + error.message);
+        setIsLoading(false);
+      });
   };
 
   return (
-    <ModalRegisterFormDiv>
-      <AuthorizationButtonEsc onClick={closeModal}>
-        <SVGEsc />
-      </AuthorizationButtonEsc>
-      <ModalRegisterDiv>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <ModalRegisterDivTitle>
-            <ModalLoginH1>Registration</ModalLoginH1>
-            <ModalRegisterSpan>
-              Thank you for your interest in our platform! In order to register,
-              we need some information. Please provide us with the following
-              information
-            </ModalRegisterSpan>
-          </ModalRegisterDivTitle>
-          <ModalRegisterInputDiv>
-            <div>
-              <ModalLoginInput
-                {...register("name")}
-                type="name"
-                id="name"
-                placeholder="name"
-              />
-              <ModalTrialSpanError>{errors.name?.message}</ModalTrialSpanError>
-            </div>
-            <div>
-              <ModalLoginInput
-                {...register("email")}
-                type="email"
-                id="email"
-                placeholder="Your email"
-              />
-              <ModalTrialSpanError>{errors.email?.message}</ModalTrialSpanError>
-            </div>
-            <div>
-              <ModalLoginInput
-                {...register("password")}
-                type="password"
-                id="password"
-                placeholder="password"
-              />
-              <ModalTrialSpanError>
-                {errors.password?.message}
-              </ModalTrialSpanError>
-            </div>
-          </ModalRegisterInputDiv>
-          {/* <ModalLoginInput
+    <>
+      <>
+        {isLoading && (
+          <>
+            <IsLoading />
+          </>
+        )}
+      </>
+      <ModalRegisterFormDiv>
+        <AuthorizationButtonEsc onClick={closeModal}>
+          <SVGEsc />
+        </AuthorizationButtonEsc>
+        <ModalRegisterDiv>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <ModalRegisterDivTitle>
+              <ModalLoginH1>Registration</ModalLoginH1>
+              <ModalRegisterSpan>
+                Thank you for your interest in our platform! In order to
+                register, we need some information. Please provide us with the
+                following information
+              </ModalRegisterSpan>
+            </ModalRegisterDivTitle>
+            <ModalRegisterInputDiv>
+              <div>
+                <ModalLoginInput
+                  {...register("name")}
+                  type="name"
+                  id="name"
+                  placeholder="name"
+                />
+                <ModalTrialSpanError>
+                  {errors.name?.message}
+                </ModalTrialSpanError>
+              </div>
+              <div>
+                <ModalLoginInput
+                  {...register("email")}
+                  type="email"
+                  id="email"
+                  placeholder="Your email"
+                />
+                <ModalTrialSpanError>
+                  {errors.email?.message}
+                </ModalTrialSpanError>
+              </div>
+              <div>
+                <ModalLoginInput
+                  {...register("password")}
+                  type="password"
+                  id="password"
+                  placeholder="password"
+                />
+                <ModalTrialSpanError>
+                  {errors.password?.message}
+                </ModalTrialSpanError>
+              </div>
+            </ModalRegisterInputDiv>
+            {/* <ModalLoginInput
             {...register("repeatPassword")}
             type="password"
             id="repeatPassword"
             placeholder="repeat password"
           />
           {errors.repeatPassword?.message} */}
-          <ModalLoginButton>Sign Up</ModalLoginButton>
-        </form>
-      </ModalRegisterDiv>
-    </ModalRegisterFormDiv>
+            <ModalLoginButton>Sign Up</ModalLoginButton>
+          </form>
+        </ModalRegisterDiv>
+      </ModalRegisterFormDiv>
+    </>
   );
 };
 

@@ -7,6 +7,7 @@ import { getDatabase, ref, onValue } from "firebase/database";
 import { query } from "firebase/database";
 import { SectionTeachers } from "../Teachers/Teachers.Styles";
 import TeachersFilterMobale from "../../components/TeachersFilter/TeachersFilterMobale";
+import IsLoading from "../../components/IsLoading/IsLoading";
 
 const Favorites = () => {
   const [teachersData, setTeachersData] = useState(null);
@@ -15,9 +16,7 @@ const Favorites = () => {
   const [filteredList, setFilteredList] = useState(null);
   const [favorites, setFavorites] = useState([]);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-  const [test, setTest] = useState(null);
-  console.log("fdsfsdfds", test);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -32,76 +31,72 @@ const Favorites = () => {
   }, []);
 
   useEffect(() => {
+    setIsLoading(true);
     getFavoritesFromLocalStorage();
-  }, [test]);
+  }, []);
 
   const getFavoritesFromLocalStorage = () => {
     const storedFavorites = localStorage.getItem("favorites");
     if (storedFavorites) {
-      setFavorites((prevFavorites) => {
-        // Перевіряємо, чи відбулися зміни
-        if (prevFavorites !== JSON.parse(storedFavorites)) {
-          console.log("Favorites have changed");
-        }
-        // Повертаємо новий стан, якщо він був змінений
-        return JSON.parse(storedFavorites);
-      });
+      setFavorites(JSON.parse(storedFavorites));
     }
+    setIsLoading(false);
   };
-  useEffect(() => {
-    getFavoritesFromLocalStorage();
-  }, [test]);
-
-  console.log(favorites);
 
   const db = getDatabase();
 
   useEffect(() => {
+    setIsLoading(true);
     const countRef = query(ref(db, "teachers"));
     onValue(countRef, (snapshot) => {
       const data = snapshot.val();
       setFavoritesData(data);
+      setIsLoading(false);
     });
   }, [db]);
 
   useEffect(() => {
     if (teachersData) {
-      console.log("teachersData", teachersData);
-      console.log("teachersFilter", teachersFilter);
-      // setFilteredList(teachersFilter);
       setFilteredList(teachersFilter || teachersData);
     }
-  }, [teachersFilter, teachersData, test]);
+  }, [teachersFilter, teachersData]);
 
   useEffect(() => {
+    setIsLoading(true);
     if (favorites.length > 0 && favoritesData) {
       const filteredTeachers = favorites
-
         .map((favoriteId) =>
           favoritesData.find((teacher) => teacher && teacher.id === favoriteId)
         )
         .filter((teacher) => teacher !== undefined);
       setTeachersData(filteredTeachers);
     }
-  }, [favoritesData, favorites, test]);
-  // Фільтрація
+    setIsLoading(false);
+  }, [favoritesData, favorites]);
 
   return (
-    <SectionTeachers>
-      {windowWidth < 768 ? (
-        <TeachersFilterMobale
-          data={teachersData}
-          setTeachersFilter={setTeachersFilter}
-        />
-      ) : (
-        <TeachersFilter
-          data={teachersData}
-          setTeachersFilter={setTeachersFilter}
-        />
+    <>
+      {isLoading && (
+        <>
+          <IsLoading />
+        </>
       )}
+      <SectionTeachers>
+        {windowWidth < 768 ? (
+          <TeachersFilterMobale
+            data={teachersData}
+            setTeachersFilter={setTeachersFilter}
+          />
+        ) : (
+          <TeachersFilter
+            data={teachersData}
+            setTeachersFilter={setTeachersFilter}
+          />
+        )}
 
-      <TeachersList dataList={filteredList} setTest={setTest} />
-    </SectionTeachers>
+        <TeachersList dataList={filteredList} />
+      </SectionTeachers>
+    </>
   );
 };
 

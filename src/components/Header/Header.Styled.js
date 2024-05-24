@@ -5,7 +5,7 @@ export const HeaderSection = styled.div`
   display: flex;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   height: 48px;
   margin-top: 20px;
 `;

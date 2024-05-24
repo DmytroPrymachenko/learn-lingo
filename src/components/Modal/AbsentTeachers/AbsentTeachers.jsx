@@ -9,13 +9,13 @@ import {
   AbsentTeachersDiv,
 } from "./AbsentTeachers.Styled";
 import { useSelector } from "react-redux";
-import { selectUserName } from "../../../store/selected";
+import { selectUser } from "../../../store/selected";
 
 const AbsentTeachers = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [countdown, setCountdown] = useState(9);
-  const userName = useSelector(selectUserName);
+  const userName = useSelector(selectUser);
 
   useEffect(() => {
     if (countdown <= 0) {
@@ -39,7 +39,9 @@ const AbsentTeachers = () => {
       <AbsentContentDiv>
         {location.pathname === "/favorites" ? (
           <>
-            <AbsentH1>Hello, {userName}!</AbsentH1>
+            <AbsentH1>
+              Hello, {userName && userName.name ? userName.name : "Friend"}!
+            </AbsentH1>
             <AbsentSpan>
               You haven&apos;t chose a favorite teacher. You will be redirected
               to the Teachers page in{" "}
@@ -56,7 +58,9 @@ const AbsentTeachers = () => {
           </>
         ) : location.pathname === "/teachers" ? (
           <>
-            <AbsentH1>Hello, {userName ? userName : "Friend"}!</AbsentH1>
+            <AbsentH1>
+              Hello, {userName && userName.name ? userName.name : "Friend"}!
+            </AbsentH1>
             <AbsentSpan>
               We&apos;re sorry, but a technical error occured. Service is
               unavaliable. Please, try again later. You will be redirected to

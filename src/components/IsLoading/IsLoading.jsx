@@ -7,8 +7,8 @@ export const IsLoadingDiv = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  backdrop-filter: blur(4px);
-  z-index: 100;
+  backdrop-filter: blur(5px);
+  z-index: 999;
   display: flex;
   align-items: center;
   justify-content: center;

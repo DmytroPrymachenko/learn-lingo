@@ -19,6 +19,9 @@ import { useForm } from "react-hook-form";
 import { ModalTrialSpanError } from "../ModalTrialLesson/ModalTrialLesson.Styled";
 import { AuthorizationButtonEsc } from "../AuthorizationMessage/AuthorizationMessage.Styled";
 import SVGEsc from "../../../images/svg/SVGEsc";
+import IsLoading from "../../IsLoading/IsLoading";
+import { useState } from "react";
+import { toast } from "react-toastify";
 
 const schema = yup.object({
   email: yup
@@ -44,10 +47,11 @@ const ModalLogin = ({ closeModal }) => {
     mode: "onChange",
     resolver: yupResolver(schema),
   });
-
+  const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
 
   const handleLogin = ({ email, password }) => {
+    setIsLoading(true);
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
@@ -58,16 +62,26 @@ const ModalLogin = ({ closeModal }) => {
               name: user.displayName,
               id: user.uid,
             },
-
             token: user.accessToken,
           })
         );
+        closeModal();
       })
-      .catch(console.error);
+      .catch((error) => {
+        console.error(error);
+        toast.error("Failed to sign in: " + error.message);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
-
   return (
     <>
+      {isLoading && (
+        <>
+          <IsLoading />
+        </>
+      )}
       <ModalLoginForm onSubmit={handleSubmit(handleLogin)}>
         <AuthorizationButtonEsc onClick={closeModal}>
           <SVGEsc />

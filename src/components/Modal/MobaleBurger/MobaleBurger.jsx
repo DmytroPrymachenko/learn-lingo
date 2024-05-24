@@ -4,6 +4,7 @@ import {
   MobaleBurgerDiv,
   MobaleBurgerLink,
   MobaleBurgerUserDiv,
+  MobaleBurgerUserH1,
 } from "./MobaleBurger.Styled";
 import { selectUser } from "../../../store/selected";
 
@@ -52,7 +53,9 @@ const MobaleBurger = ({
         <MobaleBurgerContainerDiv>
           <MobaleBurgerUserDiv>
             <IconHero />
-            <span>Hi, {user ? user.name : "friend"}</span>
+            <MobaleBurgerUserH1>
+              Hi, {user ? user.name : "friend"}
+            </MobaleBurgerUserH1>
           </MobaleBurgerUserDiv>
           <CustomLink to="/" aria-label="Home">
             Home

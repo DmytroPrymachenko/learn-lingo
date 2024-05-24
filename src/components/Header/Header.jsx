@@ -16,20 +16,33 @@ import { removeUser } from "../../store/slices/userSlice";
 import { toast } from "react-toastify";
 import BackdropActive from "../Backdrop/BackdropActive";
 import ModalLogAut from "../Modal/ModalLogAut/ModalLogAut";
+import IsLoading from "../IsLoading/IsLoading";
 
 const Header = () => {
   const [isModalLogin, setIsModalLogin] = useState(false);
   const [isModalRegister, setIsModalRegister] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const dispatch = useDispatch();
-
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const [isModalLogAut, setisModalLogAut] = useState(false);
 
-  // Вийти
+  useEffect(() => {
+    if (isModalLogin || isModalRegister || isModalLogAut) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isModalLogin, isModalRegister, isModalLogAut]);
+
   function logAut() {
+    setIsLoading(true);
     const auth = getAuth();
-    // setPersistence(auth, inMemoryPersistence)
+
     signOut(auth)
       .then(() => {
         dispatch(removeUser());
@@ -39,6 +52,9 @@ const Header = () => {
       .catch((error) => {
         const errorMessage = error.message;
         toast.error(errorMessage);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }
   const openLogAut = () => {
@@ -94,6 +110,11 @@ const Header = () => {
 
   return (
     <>
+      {isLoading && (
+        <>
+          <IsLoading />
+        </>
+      )}
       {isModalLogAut && (
         <>
           <BackdropActive closeModal={closeModal} />

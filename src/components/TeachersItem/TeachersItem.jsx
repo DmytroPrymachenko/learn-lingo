@@ -43,7 +43,11 @@ import TeachersItemMobale from "./TeachersItemMobale";
 import DetailedInformationMobale from "../Modal/DetailedInformation/DetailedInformationMobale";
 const favArray = JSON.parse(localStorage.getItem("favorites")) ?? [];
 
-const TeachersItem = ({ item, handleFavoriteChange, setTest }) => {
+const TeachersItem = ({
+  item,
+  handleFavoriteChange,
+  // setTest
+}) => {
   const [heart, setHeart] = useState(false);
   const [detailedInformationItem, setDetailedInformationItem] = useState(null);
   const [showModal, setshowModal] = useState(null);
@@ -56,14 +60,46 @@ const TeachersItem = ({ item, handleFavoriteChange, setTest }) => {
   const [isModalFavorit, setIsModalFavorit] = useState(false);
   const location = useLocation();
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  // Перевірка
+  useEffect(() => {
+    if (
+      trialLessonModal ||
+      isModalFavorit ||
+      isModalLogin ||
+      isModalRegister ||
+      isAuthorizationMessage ||
+      isUserActive ||
+      showModal
+    ) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [
+    trialLessonModal,
+    isModalFavorit,
+    isModalLogin,
+    isModalRegister,
+    isAuthorizationMessage,
+
+    isUserActive,
+    showModal,
+  ]);
 
   const openModalLogin = () => {
     setIsModalLogin(true);
     setIsAuthorizationMessage(false);
+    setIsUserActive(false);
   };
+
   const openModalRegister = () => {
     setIsModalRegister(true);
     setIsAuthorizationMessage(false);
+    setIsUserActive(false);
   };
   const handleTrialLesson = () => {
     setTrialLessonModal(true);
@@ -84,8 +120,9 @@ const TeachersItem = ({ item, handleFavoriteChange, setTest }) => {
     setTrialLessonModal(false);
     setIsUserActive(false);
     setIsAuthorizationMessage(false);
-    setIsModalRegister(false);
+
     setIsModalLogin(false);
+    setIsModalRegister(false);
   };
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -103,20 +140,23 @@ const TeachersItem = ({ item, handleFavoriteChange, setTest }) => {
   const needAuth = () => {
     setIsAuthorizationMessage(true);
   };
-  function handleToggleFavorite({ id }) {
-    if (JSON.parse(localStorage.getItem("favorites"))?.includes(id)) {
-      const index = favArray.indexOf(id);
-      favArray.splice(index, 1);
-      localStorage.setItem("favorites", JSON.stringify(favArray));
-      setHeart(!heart);
-      console.log("favArray1", favArray);
-      setTest(favArray);
+
+  const handleToggleFavorite = ({ id }) => {
+    if (user) {
+      if (favArray?.includes(id)) {
+        const index = favArray.indexOf(id);
+        favArray.splice(index, 1);
+        localStorage.setItem("favorites", JSON.stringify(favArray));
+        setHeart(!heart);
+      } else {
+        favArray.push(id);
+        localStorage.setItem("favorites", JSON.stringify(favArray));
+        setHeart(!heart);
+      }
     } else {
-      favArray.push(id);
-      localStorage.setItem("favorites", JSON.stringify(favArray));
-      setHeart(!heart);
+      needAuth();
     }
-  }
+  };
 
   const handleFavoriteClick = () => {
     if (location.pathname === "/favorites") {
@@ -153,13 +193,24 @@ const TeachersItem = ({ item, handleFavoriteChange, setTest }) => {
     };
   }, []);
 
-  const checked = JSON.parse(localStorage.getItem("favorites"))?.includes(
-    item.id
-  )
-    ? true
-    : null;
+  const checked = user
+    ? JSON.parse(localStorage.getItem("favorites"))?.includes(item.id)
+    : false;
   return (
     <>
+      {isModalLogin && (
+        <>
+          <Backdrop closeModal={closeModal} />
+          <ModalLogin closeModal={closeModal} />
+        </>
+      )}
+      {isModalRegister && (
+        <>
+          <Backdrop closeModal={closeModal} />
+          <ModalRegister closeModal={closeModal} />
+        </>
+      )}
+
       {isModalFavorit && (
         <>
           <div>
@@ -183,8 +234,8 @@ const TeachersItem = ({ item, handleFavoriteChange, setTest }) => {
       {isAuthorizationMessage && (
         <>
           <AuthorizationMessage
-            openModalLogin={openModalLogin}
             item={detailedInformationItem}
+            openModalLogin={openModalLogin}
             openModalRegister={openModalRegister}
             closeModal={closeModal}
           />
@@ -203,7 +254,12 @@ const TeachersItem = ({ item, handleFavoriteChange, setTest }) => {
       <>
         {isUserActive && (
           <>
-            <AuthorizationMessage closeModal={closeModal} />
+            <AuthorizationMessage
+              closeModal={closeModal}
+              item={detailedInformationItem}
+              openModalLogin={openModalLogin}
+              openModalRegister={openModalRegister}
+            />
             <Backdrop closeModal={closeModal} />
           </>
         )}

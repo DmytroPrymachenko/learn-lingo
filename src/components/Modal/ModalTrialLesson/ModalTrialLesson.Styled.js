@@ -20,10 +20,8 @@ export const ModalTrialLessonDiv = styled.div`
 `;
 
 export const ModalTrialForm = styled.div`
-  /* max-width: 472px;
-  background-color: #fff;
-  padding: 24px;
-  border-radius: 30px; */
+  min-width: 300px;
+
   max-width: 472px;
   background-color: #fff;
   padding: 24px;
@@ -93,6 +91,9 @@ export const RadioUl = styled.ul`
   padding-bottom: 40px;
 `;
 export const ModalTrialExperienced = styled.span`
+  @media (max-width: 1280px) {
+    font-size: 14px;
+  }
   font-weight: 400;
   font-size: 16px;
   line-height: 137%;
@@ -149,12 +150,18 @@ export const ModalTrialButton = styled.button`
 `;
 
 export const ModalTrialH1 = styled.h1`
+  @media (max-width: 1280px) {
+    font-size: 32px;
+  }
   font-weight: 500;
   font-size: 40px;
   line-height: 120%;
   letter-spacing: -0.02em;
 `;
 export const ModalTrialH2 = styled.h2`
+  @media (max-width: 1280px) {
+    font-size: 18px;
+  }
   font-weight: 500;
   font-size: 24px;
   line-height: 133%;
@@ -165,6 +172,11 @@ export const ModalTrialTitleDiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  @media (max-width: 768px) {
+    gap: 10px;
+    padding-bottom: 20px;
+  }
+
   gap: 20px;
   padding-bottom: 40px;
 `;

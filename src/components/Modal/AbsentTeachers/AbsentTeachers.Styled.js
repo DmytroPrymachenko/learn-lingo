@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 export const AbsentTeachersDiv = styled.div`
+  min-width: 300px;
   background-color: #fff;
   padding: 20px;
   @media (min-width: 768px) {

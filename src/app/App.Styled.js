@@ -4,4 +4,3 @@ export const GlobalStyles = createGlobalStyle`
     background-color: ${({ isHomePage }) => (isHomePage ? "#fff" : "#f8f8f8")};
   }
 `;
-// #f8f8f8

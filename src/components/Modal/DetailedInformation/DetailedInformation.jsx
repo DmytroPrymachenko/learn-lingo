@@ -46,7 +46,7 @@ const DetailedInformation = ({
 
   handleTrialLesson,
 }) => {
-  const test = () => {
+  const handleToggle = () => {
     handleToggleFavorite(item);
   };
 
@@ -92,7 +92,7 @@ const DetailedInformation = ({
                       </TeachersItemPriceSpan>
                     </TeachersListStatusLi>
                   </TeachersListStatusUl>
-                  <ButtonTeachersFavorite onClick={test}>
+                  <ButtonTeachersFavorite onClick={handleToggle}>
                     {checked ? <HeartLikeActive /> : <HeartLike />}
                   </ButtonTeachersFavorite>
                 </TeachersListStatusDivInternal>

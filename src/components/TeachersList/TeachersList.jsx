@@ -10,15 +10,8 @@ import { useEffect, useState } from "react";
 import AbsentTeachers from "../Modal/AbsentTeachers/AbsentTeachers";
 import BackdropActive from "../Backdrop/BackdropActive";
 import IsLoading from "../IsLoading/IsLoading";
-// import {
-//   getDatabase,
-//   limitToFirst,
-//   onValue,
-//   query,
-//   ref,
-// } from "firebase/database";
 
-const TeachersList = ({ dataList, setTest }) => {
+const TeachersList = ({ dataList }) => {
   const [teachersList, setTeachersList] = useState(null);
   const [loadedItems, setLoadedItems] = useState(4);
   const [isLoadingState, setIsLoading] = useState(false);
@@ -34,7 +27,6 @@ const TeachersList = ({ dataList, setTest }) => {
 
       setTeachersList(dataList);
       setIsLoading(false);
-      console.log(favoriteChanged);
     }
   }, [dataList, favoriteChanged]);
 
@@ -62,7 +54,7 @@ const TeachersList = ({ dataList, setTest }) => {
                 key={nanoid()}
                 item={item}
                 handleFavoriteChange={handleFavoriteChange}
-                setTest={setTest}
+                // setTest={setTest}
               />
             ))}
           </TeachersListUl>

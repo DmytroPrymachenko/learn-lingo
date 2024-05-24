@@ -102,6 +102,32 @@ export const ButtonTeachersFavorite = styled.button`
   background: none;
 `;
 
+export const ButtonTeachersFavoriteTavletChecked = styled.button`
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 156%;
+  color: #121417;
+  background: transparent;
+  border-radius: 12px;
+  padding: 8px 24px;
+  border: none;
+  display: flex;
+  align-items: center;
+`;
+
+export const ButtonTeachersFavoriteTavlet = styled.button`
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 156%;
+  color: #121417;
+  background: #f4c550;
+  border-radius: 12px;
+  padding: 8px 24px;
+  border: none;
+  display: flex;
+  align-items: center;
+`;
+
 export const TeachersItemParameters = styled.span`
   font-weight: 500;
   font-size: 16px;
@@ -210,4 +236,10 @@ export const TeachersitemLTitleDiv = styled.div`
   justify-content: flex-start;
   gap: 8px;
   flex-direction: column;
+`;
+
+export const BookLessonButtonTabletDiv = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
 `;

@@ -63,7 +63,6 @@ const ModalTrialLesson = ({ item }) => {
     resolver: yupResolver(schema),
   });
 
-  // const [reason, setReason] = useState("");
   const [value, setValue] = useState("");
   const handleRadioChange = (event) => {
     setValue(event.target.value);

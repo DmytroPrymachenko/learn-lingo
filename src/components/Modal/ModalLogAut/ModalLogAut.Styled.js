@@ -1,9 +1,13 @@
 import styled from "styled-components";
 
 export const ModalLogAutDiv = styled.div`
+  min-width: 300px;
   background-color: #fff;
   padding: 20px;
   @media (min-width: 768px) {
+    padding: 48px;
+  }
+  @media (min-width: 1280px) {
     padding: 64px;
   }
   border-radius: 30px;
@@ -17,6 +21,7 @@ export const ModalLogAutDiv = styled.div`
 export const LogAutDiv = styled.div`
   display: flex;
   flex-direction: column;
+  position: relative;
 `;
 export const LogAutH1 = styled.h1`
   font-weight: 500;
@@ -27,7 +32,7 @@ export const LogAutH1 = styled.h1`
 `;
 export const LogAutSpan = styled.span`
   font-weight: 400;
-  font-size: 16px;
+  font-size: 20px;
   line-height: 137%;
   color: rgba(18, 20, 23, 0.8);
   padding-bottom: 40px;

@@ -8,21 +8,33 @@ import {
   LogAutSpan,
   ModalLogAutDiv,
 } from "./ModalLogAut.Styled";
-import { selectUserName } from "../../../store/selected";
+import { selectUser } from "../../../store/selected";
+import { AuthorizationButtonEsc } from "../AuthorizationMessage/AuthorizationMessage.Styled";
+import SVGEsc from "../../../images/svg/SVGEsc";
 
 const ModalLogAut = ({ logAut, closeModal }) => {
-  const userName = useSelector(selectUserName);
+  const userName = useSelector(selectUser);
+
+  const handleLogAut = () => {
+    logAut();
+    closeModal();
+  };
 
   return (
     <ModalLogAutDiv>
       <LogAutDiv>
-        <LogAutH1>Привіт {userName}!</LogAutH1>
-        <LogAutSpan>Ти точно бажаєш вийти з особистого кабінету?</LogAutSpan>
+        <LogAutH1>Hi, {userName ? userName.name : ""}!</LogAutH1>
+        <LogAutSpan>
+          Are you sure you want to log out of your account?
+        </LogAutSpan>
         <LogAutButtonDiv>
           <LogAutButtonClose onClick={closeModal}>Close</LogAutButtonClose>
-          <LogAutButtonlogAut onClick={logAut}>LogAut</LogAutButtonlogAut>
+          <LogAutButtonlogAut onClick={handleLogAut}>LogAut</LogAutButtonlogAut>
         </LogAutButtonDiv>
       </LogAutDiv>
+      <AuthorizationButtonEsc onClick={closeModal}>
+        <SVGEsc />
+      </AuthorizationButtonEsc>
     </ModalLogAutDiv>
   );
 };

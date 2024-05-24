@@ -1,5 +1,6 @@
 import styled from "styled-components";
 export const ModalRegisterFormDiv = styled.div`
+  min-width: 300px;
   background-color: #fff;
   padding: 20px;
   @media (min-width: 768px) {
