@@ -116,6 +116,12 @@ export const BookLessonButton = styled.button`
   padding: 16px 48px;
   border: none;
   cursor: pointer;
+  transition: background-color 0.5s ease;
+
+  &:hover,
+  &:focus {
+    background-color: #fbe9ba;
+  }
 `;
 
 export const BookLessonButtonTablet = styled.button`

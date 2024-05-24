@@ -130,13 +130,20 @@ export const ModalTrialButton = styled.button`
   padding: 16px;
   cursor: pointer;
   background: #f4c550;
-
   font-weight: 700;
   font-size: 18px;
   line-height: 156%;
   color: #121417;
   width: 100%;
   border: none;
+  transition: background-color 0.5s ease, transform 0.4s ease;
+
+  &:hover,
+  &:focus {
+    background-color: #fbe9ba;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
 `;
 
 export const ModalTrialH1 = styled.h1`
