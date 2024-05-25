@@ -53,7 +53,6 @@ const DetailedInformation = ({
     handleToggleFavorite(item);
   };
 
-  console.log(item);
   return (
     <>
       <DetailedInformationDiv>

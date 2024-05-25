@@ -86,7 +86,7 @@ const ModalRegister = ({ closeModal }) => {
                 token: user.accessToken,
               })
             );
-            console.log(user);
+
             toast.success(`Welcome`);
             navigate("/teachers");
             closeModal();
