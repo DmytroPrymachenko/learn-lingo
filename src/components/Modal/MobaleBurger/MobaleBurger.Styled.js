@@ -22,6 +22,7 @@ export const MobaleBurgerDiv = styled.div`
     opacity: 1;
   }
 `;
+
 export const MobaleBurgerContainerDiv = styled.div`
   display: flex;
   flex-direction: column;
